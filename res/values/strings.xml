@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EDPSystem</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="AutoMode">自动模式</string>
+    <string name="MainEnterMode">进入向导模式</string>
+    <string name="WelcomeText">欢迎使用安夏电子席卡</string>
+    <string name="title_activity_fmodelchoose">设置界面1</string>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="TextFont">
+        <item>字体 1</item>
+        <item>字体 2</item>
+        <item>字体3</item>
+        <item>字体4</item>
+        <item>字体5</item>
+    </string-array>
+</resources>

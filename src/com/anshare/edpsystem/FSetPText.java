@@ -1,6 +1,5 @@
 package com.anshare.edpsystem;
 
-import android.R.color;
 import android.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;  
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.view.View.OnClickListener;
 
 
 public class FSetPText extends Fragment {
@@ -26,15 +24,11 @@ public class FSetPText extends Fragment {
 	
 
 	public FSetPText() {
-		Text_Size[0]=90;
-		Text_Size[1]=45;
-		Text_Size[2]=25;
-		C_Up_Down[0]=0;
-		C_Up_Down[1]=0;
-		C_Up_Down[2]=0;
-		C_Left_Right[0]=0;
-		C_Left_Right[1]=0;
-		C_Left_Right[2]=0;
+		MainActivity MA0=(MainActivity) getActivity();
+		int[][] GetInput=MA0.getEDPTextPinformation();
+		C_Up_Down=GetInput[0];
+		C_Left_Right=GetInput[1];
+		Text_Size=GetInput[2];
 	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
@@ -88,41 +82,42 @@ public class FSetPText extends Fragment {
 				EDPName1.setTextColor(Color.LTGRAY);
 				EDPName2.setTextColor(Color.BLACK);
 				EDPName3.setTextColor(Color.BLACK);
-				Text_UP_Down_Num.setText(C_Up_Down[0]+"");
-				Text_Left_Right_Num.setText(C_Left_Right[0]+"");
-				Input_Text_Size.setText(Text_Size[0]+"");
+				Text_UP_Down_Num.setText(C_Up_Down[EDP_Name_Flag]+"");
+				Text_Left_Right_Num.setText(C_Left_Right[EDP_Name_Flag]+"");
+				Input_Text_Size.setText(Text_Size[EDP_Name_Flag]+"");
 			}
 		});
 		EDPName2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO 自动生成的方法存根
-				EDP_Name_Flag=2;
+				EDP_Name_Flag=1;
 				EDPName1.setTextColor(Color.BLACK);
 				EDPName2.setTextColor(Color.LTGRAY);
 				EDPName3.setTextColor(Color.BLACK);
-				Text_UP_Down_Num.setText(C_Up_Down[1]+"");
-				Text_Left_Right_Num.setText(C_Left_Right[1]+"");
-				Input_Text_Size.setText(Text_Size[1]+"");
+				Text_UP_Down_Num.setText(C_Up_Down[EDP_Name_Flag]+"");
+				Text_Left_Right_Num.setText(C_Left_Right[EDP_Name_Flag]+"");
+				Input_Text_Size.setText(Text_Size[EDP_Name_Flag]+"");
 			}
 		});
 		EDPName3.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO 自动生成的方法存根
-				EDP_Name_Flag=3;
+				EDP_Name_Flag=2;
 				EDPName1.setTextColor(Color.BLACK);
 				EDPName2.setTextColor(Color.BLACK);
 				EDPName3.setTextColor(Color.LTGRAY);
-				Text_UP_Down_Num.setText(C_Up_Down[2]+"");
-				Text_Left_Right_Num.setText(C_Left_Right[2]+"");
-				Input_Text_Size.setText(Text_Size[2]+"");
+				Text_UP_Down_Num.setText(C_Up_Down[EDP_Name_Flag]+"");
+				Text_Left_Right_Num.setText(C_Left_Right[EDP_Name_Flag]+"");
+				Input_Text_Size.setText(Text_Size[EDP_Name_Flag]+"");
 			}
 		});
 		
 		//页面控制
 		Button FSet3_back=(Button)rootView.findViewById(R.id.FSet3_back);
 		FSet3_back.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				//do something
 				getFragmentManager().beginTransaction().add(R.id.container, new FSetText()).commit();
@@ -130,6 +125,7 @@ public class FSetPText extends Fragment {
 			});
 		Button FSet3_next=(Button)rootView.findViewById(R.id.FSet3_next);
 		FSet3_next.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				//do something
 				getFragmentManager().beginTransaction().replace(R.id.container, new MainWindow()).commit();
@@ -138,6 +134,7 @@ public class FSetPText extends Fragment {
 		//重置
 		Button FSet3_reset=(Button)rootView.findViewById(R.id.FSet3_reset);
 		FSet3_reset.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				//do something
 				C_Up_Down[0]=0;
@@ -153,8 +150,9 @@ public class FSetPText extends Fragment {
 			});
 		//字体位置设置部分
 		FSet3_TextPSet_Up.setOnClickListener(new Button.OnClickListener(){
+			@Override
 			public void onClick(View v) {
-				//输入框设置 字体大小
+				//字体位置 上移
 				C_Up_Down[EDP_Name_Flag]=C_Up_Down[EDP_Name_Flag]+1;//转化数据类型
 				Text_UP_Down_Num.setText(C_Up_Down[EDP_Name_Flag]+"");
 				if(EDP_Name_Flag==0){}
@@ -163,8 +161,9 @@ public class FSetPText extends Fragment {
 				}
 			});
 		FSet3_TextPSet_Down.setOnClickListener(new Button.OnClickListener(){
+			@Override
 			public void onClick(View v) {
-				//输入框设置 字体大小
+				//字体位置 下移
 				C_Up_Down[EDP_Name_Flag]=C_Up_Down[EDP_Name_Flag]-1;//转化数据类型
 				Text_UP_Down_Num.setText(C_Up_Down[EDP_Name_Flag]+"");
 				if(EDP_Name_Flag==0){}
@@ -173,8 +172,9 @@ public class FSetPText extends Fragment {
 				}
 			});
 		FSet3_TextPSet_Right.setOnClickListener(new Button.OnClickListener(){
+			@Override
 			public void onClick(View v) {
-				//输入框设置 字体大小
+				//字体位置 右移
 				C_Left_Right[EDP_Name_Flag]=C_Left_Right[EDP_Name_Flag]+1;//转化数据类型
 				Text_Left_Right_Num.setText(C_Left_Right[EDP_Name_Flag]+"");
 				if(EDP_Name_Flag==0){}
@@ -183,8 +183,9 @@ public class FSetPText extends Fragment {
 				}
 			});
 		FSet3_TextPSet_Left.setOnClickListener(new Button.OnClickListener(){
+			@Override
 			public void onClick(View v) {
-				//输入框设置 字体大小
+				//字体位置 左移
 				C_Left_Right[EDP_Name_Flag]=C_Left_Right[EDP_Name_Flag]-1;//转化数据类型
 				Text_Left_Right_Num.setText(C_Left_Right[EDP_Name_Flag]+"");
 				if(EDP_Name_Flag==0){}
@@ -195,6 +196,7 @@ public class FSetPText extends Fragment {
 		
 		//字体设置部分
 		FSet3_TextPSet_Size.setOnClickListener(new Button.OnClickListener(){
+			@Override
 			public void onClick(View v) {
 				//输入框设置 字体大小
 				Text_Size_Temp=Input_Text_Size.getText().toString();//获取输入框数据
@@ -206,6 +208,7 @@ public class FSetPText extends Fragment {
 				}
 			});
 		FSet3_TextPSet_Size_Up.setOnClickListener(new Button.OnClickListener(){
+			@Override
 			public void onClick(View v) {
 				//输入框设置 字体大小
 				Text_Size[EDP_Name_Flag]=Text_Size[EDP_Name_Flag]+1;//转化数据类型
@@ -216,6 +219,7 @@ public class FSetPText extends Fragment {
 				}
 			});
 		FSet3_TextPSet_Size_Down.setOnClickListener(new Button.OnClickListener(){
+			@Override
 			public void onClick(View v) {
 				//输入框设置 字体大小
 				Text_Size[EDP_Name_Flag]=Text_Size[EDP_Name_Flag]-1;//转化数据类型
@@ -229,12 +233,12 @@ public class FSetPText extends Fragment {
 		
 		//关键设置  全局保存       
         FSet3_TextPSet.setOnClickListener(new Button.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				//do something
-				//获取文本信息
-				//设置字体大小
-				//Text_Size_Temp=Input_Text_Size.getText().toString();
-		        
+				//保存 本页面设置信息
+				MainActivity MA=(MainActivity) getActivity();
+				MA.setEDPTextPinformation(C_Up_Down, C_Left_Right, Text_Size);		        
 				}
 			});
         

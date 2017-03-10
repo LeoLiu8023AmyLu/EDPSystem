@@ -22,6 +22,7 @@ public class FModelchoose extends Fragment {
 		TextView FSet1_0Dital3=(TextView)rootView.findViewById(R.id.FSet1_0Dital3);
 		Button FSet1_back=(Button)rootView.findViewById(R.id.FSet1_back);
 		FSet1_back.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				//do something
 				getFragmentManager().beginTransaction().replace(R.id.container, new MainWindow()).commit();
@@ -29,6 +30,7 @@ public class FModelchoose extends Fragment {
 			});
 		Button FSet1_next=(Button)rootView.findViewById(R.id.FSet1_next);
 		FSet1_next.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				//do something
 				getFragmentManager().beginTransaction().add(R.id.container, new FSetText()).commit();

@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.view.View.OnClickListener;
 
 
 public class FSetText extends Fragment {
@@ -32,6 +31,7 @@ public class FSetText extends Fragment {
 		final TextView EDPName3=(TextView)rootView.findViewById(R.id.text_EDPName3);
 		Button FSet2_back=(Button)rootView.findViewById(R.id.FSet2_back);
 		FSet2_back.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				//do something
 				getFragmentManager().beginTransaction().add(R.id.container, new FModelchoose()).commit();
@@ -39,6 +39,7 @@ public class FSetText extends Fragment {
 			});
 		Button FSet2_next=(Button)rootView.findViewById(R.id.FSet2_next);
 		FSet2_next.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				//do something
 				getFragmentManager().beginTransaction().add(R.id.container, new FSetPText()).commit();
@@ -46,6 +47,7 @@ public class FSetText extends Fragment {
 			});
 		Button FSet2_reset=(Button)rootView.findViewById(R.id.FSet2_reset);
 		FSet2_reset.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				//do something
 				EDPName1.setText("文本内容1");
@@ -69,6 +71,7 @@ public class FSetText extends Fragment {
         
         Button FSet2_TextSet=(Button)rootView.findViewById(R.id.button_textset);
         FSet2_TextSet.setOnClickListener(new Button.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				//do something
 				//获取文本信息

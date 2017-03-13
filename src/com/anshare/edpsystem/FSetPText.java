@@ -24,11 +24,7 @@ public class FSetPText extends Fragment {
 	
 
 	public FSetPText() {
-		MainActivity MA0=(MainActivity) getActivity();
-		int[][] GetInput=MA0.getEDPTextPinformation();
-		C_Up_Down=GetInput[0];
-		C_Left_Right=GetInput[1];
-		Text_Size=GetInput[2];
+		
 	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
@@ -56,23 +52,35 @@ public class FSetPText extends Fragment {
         //全盘保存
         Button FSet3_TextPSet=(Button)rootView.findViewById(R.id.button_textpset);
 		//获取文字信息
+        
 		MainActivity MA0=(MainActivity) getActivity();
 		String[] GetText=new String[3];
 		GetText=MA0.getEDPTextinformation();
 		this.StrEDPName1=GetText[0];
 		this.StrEDPName2=GetText[1];
 		this.StrEDPName3=GetText[2];
+		int[][] GetInput=MA0.getEDPTextPinformation();
+		C_Up_Down=GetInput[0];
+		C_Left_Right=GetInput[1];
+		Text_Size=GetInput[2];
 		//设置文字信息
 		EDPName1.setText(StrEDPName1);
 		EDPName1.setTextSize(Text_Size[0]);
+		EDPName1.setPadding(C_Left_Right[0], C_Up_Down[0], 0, 0);
 		EDPName1.setTextColor(Color.LTGRAY);
 		EDPName2.setText(StrEDPName2);
 		EDPName2.setTextSize(Text_Size[1]);
+		EDPName2.setPadding(C_Left_Right[1], C_Up_Down[1], 0, 0);
 		EDPName3.setText(StrEDPName3);
 		EDPName3.setTextSize(Text_Size[2]);
-		Text_UP_Down_Num.setText(C_Up_Down[0]+"");
+		EDPName3.setPadding(C_Left_Right[2], C_Up_Down[2], 0, 0);
+		Text_UP_Down_Num.setText(-C_Up_Down[0]+"");
 		Text_Left_Right_Num.setText(C_Left_Right[0]+"");
 		Input_Text_Size.setText(Text_Size[0]+"");
+		/**
+		 * 设置显示的对象的监听
+		 * 这个后期需要优化(非必须3个项目)
+		 */
 		//设置监听器
 		EDPName1.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -82,7 +90,7 @@ public class FSetPText extends Fragment {
 				EDPName1.setTextColor(Color.LTGRAY);
 				EDPName2.setTextColor(Color.BLACK);
 				EDPName3.setTextColor(Color.BLACK);
-				Text_UP_Down_Num.setText(C_Up_Down[EDP_Name_Flag]+"");
+				Text_UP_Down_Num.setText(-C_Up_Down[EDP_Name_Flag]+"");
 				Text_Left_Right_Num.setText(C_Left_Right[EDP_Name_Flag]+"");
 				Input_Text_Size.setText(Text_Size[EDP_Name_Flag]+"");
 			}
@@ -95,7 +103,7 @@ public class FSetPText extends Fragment {
 				EDPName1.setTextColor(Color.BLACK);
 				EDPName2.setTextColor(Color.LTGRAY);
 				EDPName3.setTextColor(Color.BLACK);
-				Text_UP_Down_Num.setText(C_Up_Down[EDP_Name_Flag]+"");
+				Text_UP_Down_Num.setText(-C_Up_Down[EDP_Name_Flag]+"");
 				Text_Left_Right_Num.setText(C_Left_Right[EDP_Name_Flag]+"");
 				Input_Text_Size.setText(Text_Size[EDP_Name_Flag]+"");
 			}
@@ -108,12 +116,15 @@ public class FSetPText extends Fragment {
 				EDPName1.setTextColor(Color.BLACK);
 				EDPName2.setTextColor(Color.BLACK);
 				EDPName3.setTextColor(Color.LTGRAY);
-				Text_UP_Down_Num.setText(C_Up_Down[EDP_Name_Flag]+"");
+				Text_UP_Down_Num.setText(-C_Up_Down[EDP_Name_Flag]+"");
 				Text_Left_Right_Num.setText(C_Left_Right[EDP_Name_Flag]+"");
 				Input_Text_Size.setText(Text_Size[EDP_Name_Flag]+"");
 			}
 		});
-		
+		/**
+		 * 页面控制部分
+		 * 功能：后退，前进，重置
+		 */
 		//页面控制
 		Button FSet3_back=(Button)rootView.findViewById(R.id.FSet3_back);
 		FSet3_back.setOnClickListener(new View.OnClickListener() {
@@ -146,29 +157,47 @@ public class FSetPText extends Fragment {
 				Text_Size[0]=90;
 				Text_Size[1]=45;
 				Text_Size[2]=25;
+				EDPName1.setText(StrEDPName1);
+				EDPName1.setTextSize(Text_Size[0]);
+				EDPName1.setPadding(C_Left_Right[0], C_Up_Down[0], 0, 0);
+				EDPName1.setTextColor(Color.LTGRAY);
+				EDPName2.setText(StrEDPName2);
+				EDPName2.setTextSize(Text_Size[1]);
+				EDPName2.setPadding(C_Left_Right[1], C_Up_Down[1], 0, 0);
+				EDPName3.setText(StrEDPName3);
+				EDPName3.setTextSize(Text_Size[2]);
+				EDPName3.setPadding(C_Left_Right[2], C_Up_Down[2], 0, 0);
+				Text_UP_Down_Num.setText(-C_Up_Down[0]+"");
+				Text_Left_Right_Num.setText(C_Left_Right[0]+"");
+				Input_Text_Size.setText(Text_Size[0]+"");
+				
 				}
 			});
+		/**
+		 * 字体位置设置功能部分
+		 * 功能：上下左右 调节
+		 */
 		//字体位置设置部分
 		FSet3_TextPSet_Up.setOnClickListener(new Button.OnClickListener(){
 			@Override
 			public void onClick(View v) {
 				//字体位置 上移
-				C_Up_Down[EDP_Name_Flag]=C_Up_Down[EDP_Name_Flag]+1;//转化数据类型
-				Text_UP_Down_Num.setText(C_Up_Down[EDP_Name_Flag]+"");
-				if(EDP_Name_Flag==0){}
-				else if(EDP_Name_Flag==1){}
-				else if(EDP_Name_Flag==2){}
+				C_Up_Down[EDP_Name_Flag]=C_Up_Down[EDP_Name_Flag]-1;//转化数据类型
+				Text_UP_Down_Num.setText(-C_Up_Down[EDP_Name_Flag]+"");
+				if(EDP_Name_Flag==0){EDPName1.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==1){EDPName2.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==2){EDPName3.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
 				}
 			});
 		FSet3_TextPSet_Down.setOnClickListener(new Button.OnClickListener(){
 			@Override
 			public void onClick(View v) {
 				//字体位置 下移
-				C_Up_Down[EDP_Name_Flag]=C_Up_Down[EDP_Name_Flag]-1;//转化数据类型
-				Text_UP_Down_Num.setText(C_Up_Down[EDP_Name_Flag]+"");
-				if(EDP_Name_Flag==0){}
-				else if(EDP_Name_Flag==1){}
-				else if(EDP_Name_Flag==2){}
+				C_Up_Down[EDP_Name_Flag]=C_Up_Down[EDP_Name_Flag]+1;//转化数据类型
+				Text_UP_Down_Num.setText(-C_Up_Down[EDP_Name_Flag]+"");
+				if(EDP_Name_Flag==0){EDPName1.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==1){EDPName2.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==2){EDPName3.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
 				}
 			});
 		FSet3_TextPSet_Right.setOnClickListener(new Button.OnClickListener(){
@@ -177,9 +206,9 @@ public class FSetPText extends Fragment {
 				//字体位置 右移
 				C_Left_Right[EDP_Name_Flag]=C_Left_Right[EDP_Name_Flag]+1;//转化数据类型
 				Text_Left_Right_Num.setText(C_Left_Right[EDP_Name_Flag]+"");
-				if(EDP_Name_Flag==0){}
-				else if(EDP_Name_Flag==1){}
-				else if(EDP_Name_Flag==2){}
+				if(EDP_Name_Flag==0){EDPName1.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==1){EDPName2.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==2){EDPName3.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
 				}
 			});
 		FSet3_TextPSet_Left.setOnClickListener(new Button.OnClickListener(){
@@ -188,13 +217,16 @@ public class FSetPText extends Fragment {
 				//字体位置 左移
 				C_Left_Right[EDP_Name_Flag]=C_Left_Right[EDP_Name_Flag]-1;//转化数据类型
 				Text_Left_Right_Num.setText(C_Left_Right[EDP_Name_Flag]+"");
-				if(EDP_Name_Flag==0){}
-				else if(EDP_Name_Flag==1){}
-				else if(EDP_Name_Flag==2){}
+				if(EDP_Name_Flag==0){EDPName1.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==1){EDPName2.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==2){EDPName3.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
 				}
 			});
-		
-		//字体设置部分
+		/**
+		 * 字体设置部分
+		 * 监听按钮：更改、增大、减小
+		 * 更改 显示数字，显示字体的大小
+		 */
 		FSet3_TextPSet_Size.setOnClickListener(new Button.OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -229,9 +261,11 @@ public class FSetPText extends Fragment {
 				else if(EDP_Name_Flag==2){EDPName3.setTextSize(Text_Size[EDP_Name_Flag]);}
 				}
 			});
-		
-		
-		//关键设置  全局保存       
+		/**
+		 * 全局保存功能
+		 * 将此界面的所有参数 以数组的形式传递给 MainActivity
+		 * 数组为：上下位置，左右位置，字体大小
+		 */   
         FSet3_TextPSet.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -242,7 +276,6 @@ public class FSetPText extends Fragment {
 				}
 			});
         
-		
 	    return rootView;    
 	} 
 }

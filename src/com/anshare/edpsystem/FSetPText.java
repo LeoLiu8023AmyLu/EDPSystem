@@ -46,6 +46,9 @@ public class FSetPText extends Fragment {
         Button FSet3_TextPSet_Down=(Button)rootView.findViewById(R.id.button_down);
         Button FSet3_TextPSet_Left=(Button)rootView.findViewById(R.id.button_left);
         Button FSet3_TextPSet_Right=(Button)rootView.findViewById(R.id.button_right);
+        //快速居中
+        Button FSet3_TextPSet_UpDown_Center=(Button) rootView.findViewById(R.id.button_up_down_center);
+        Button FSet3_TextPSet_Left_Right_Center=(Button) rootView.findViewById(R.id.button_left_right_center);
 		//字体 调整
         Button FSet3_TextPSet_Size_Up=(Button) rootView.findViewById(R.id.button_textsize_up);
         Button FSet3_TextPSet_Size_Down=(Button) rootView.findViewById(R.id.button_textsize_down);
@@ -139,7 +142,7 @@ public class FSetPText extends Fragment {
 			@Override
 			public void onClick(View v) {
 				//do something
-				getFragmentManager().beginTransaction().replace(R.id.container, new MainWindow()).commit();
+				getFragmentManager().beginTransaction().add(R.id.container, new FPreview()).commit();
 				}
 			});
 		//重置
@@ -222,6 +225,33 @@ public class FSetPText extends Fragment {
 				else if(EDP_Name_Flag==2){EDPName3.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
 				}
 			});
+		/**
+		 * 字体位置 居中 快速设置
+		 */
+		FSet3_TextPSet_UpDown_Center.setOnClickListener(new Button.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				//字体位置 左移
+				C_Up_Down[EDP_Name_Flag]=0;//转化数据类型
+				Text_UP_Down_Num.setText(-C_Up_Down[EDP_Name_Flag]+"");
+				if(EDP_Name_Flag==0){EDPName1.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==1){EDPName2.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==2){EDPName3.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				}
+			});
+		FSet3_TextPSet_Left_Right_Center.setOnClickListener(new Button.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				//字体位置 左移
+				C_Left_Right[EDP_Name_Flag]=0;//转化数据类型
+				Text_Left_Right_Num.setText(C_Left_Right[EDP_Name_Flag]+"");
+				if(EDP_Name_Flag==0){EDPName1.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==1){EDPName2.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				else if(EDP_Name_Flag==2){EDPName3.setPadding(C_Left_Right[EDP_Name_Flag], C_Up_Down[EDP_Name_Flag], 0, 0);}
+				}
+			});
+		
+		
 		/**
 		 * 字体设置部分
 		 * 监听按钮：更改、增大、减小

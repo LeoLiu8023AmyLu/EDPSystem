@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class FSetPText extends Fragment {
@@ -321,7 +322,8 @@ public class FSetPText extends Fragment {
 				//do something
 				//保存 本页面设置信息
 				MainActivity MA=(MainActivity) getActivity();
-				MA.setEDPTextPinformation(C_Up_Down, C_Left_Right, Text_Size);		        
+				MA.setEDPTextPinformation(C_Up_Down, C_Left_Right, Text_Size);
+				Toast.makeText(getActivity(), "保存完成",Toast.LENGTH_SHORT).show();
 				}
 			});
         

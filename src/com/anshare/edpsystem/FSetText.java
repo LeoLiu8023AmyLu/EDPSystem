@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class FSetText extends Fragment {
@@ -109,6 +110,7 @@ public class FSetText extends Fragment {
 		        }
 		        MainActivity MA=(MainActivity) getActivity();
 		        MA.setEDPTextinformation(StrEDPName1, StrEDPName2, StrEDPName3);//传递参数
+		        Toast.makeText(getActivity(), "保存完成",Toast.LENGTH_SHORT).show();
 				}
 			});
         

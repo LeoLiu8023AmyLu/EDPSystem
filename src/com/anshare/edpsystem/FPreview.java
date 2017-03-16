@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class FPreview extends Fragment {
@@ -81,7 +82,7 @@ public class FPreview extends Fragment {
 			@Override
 			public void onClick(View v) {
 				//do something
-				
+				Toast.makeText(getActivity(), "´«ÊäÍê³É",Toast.LENGTH_SHORT).show();
 				}
 			});
         

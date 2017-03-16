@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainWindow extends Fragment {
 
@@ -25,6 +26,14 @@ public class MainWindow extends Fragment {
 				//do something
 				getFragmentManager().beginTransaction().add(R.id.container, new FModelchoose()).commit();
 			}
+			});
+		Button MainAutoSetBT=(Button)rootView.findViewById(R.id.button_MainAutoset);
+		MainAutoSetBT.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//do something
+				Toast.makeText(getActivity(), "暂不支持，请等待开发完成",Toast.LENGTH_SHORT).show();
+				}
 			});
 		//初始化 控件
 		TextView MainTime=(TextView)rootView.findViewById(R.id.MainTime);

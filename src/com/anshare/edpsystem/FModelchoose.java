@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FModelchoose extends Fragment {
 
@@ -34,6 +35,14 @@ public class FModelchoose extends Fragment {
 			public void onClick(View v) {
 				//do something
 				getFragmentManager().beginTransaction().add(R.id.container, new FSetText()).commit();
+				}
+			});
+		Button FSet1_input=(Button)rootView.findViewById(R.id.FSet1_input);
+		FSet1_input.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//do something
+				Toast.makeText(getActivity(), "暂不支持，请等待开发完成",Toast.LENGTH_SHORT).show();
 				}
 			});
 		FSet1_0Dital1.setText("模板名称");

@@ -45,9 +45,9 @@ EDPSystem 安夏电子席卡 Android 版本 客户端
 
 ##目前问题：
 
-	1.显示问题 TextView 定位问题 setPadding 以及 setMargin  
+	1.显示问题 TextView 定位问题 setPadding 以及 setMargin，另外fragment 层穿透，或者替换 
 	[解决方法](https://segmentfault.com/q/1010000004032766?_ea=464119)
 	2.画布缩放问题 
 	(128/75)*5 ---> (128/75)*6 ---> (128/75)*8
 	3.字体加载问题
-	4.通信问题
+	4.通信问题 蓝牙、串口 方式

@@ -37,6 +37,7 @@
                 android:orientation="vertical" >
 
                 <RelativeLayout
+                    android:id="@+id/F2_RelativeLayout"
                     android:layout_width="640dp"
                     android:layout_height="375dp"
                     android:background="#EEAABB"

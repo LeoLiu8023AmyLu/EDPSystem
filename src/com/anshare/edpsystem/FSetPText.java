@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -32,6 +34,23 @@ public class FSetPText extends Fragment {
 		View rootView = inflater.inflate(R.layout.f_textpset, container, false);
 		//初始化 控件
 		// 主要显示部分
+		final RelativeLayout Rlayout=(RelativeLayout) rootView.findViewById(R.id.F2_RelativeLayout);
+		int left, top, right, bottom;
+		left = top = right = bottom = 64;
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+		    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		params.setMargins(left, top, right, bottom);
+		/*
+		TextView textViewTest = new TextView(null);
+		textViewTest.setText("A Label");
+		textViewTest.setLayoutParams(params);        
+
+		LinearLayout ll = new LinearLayout(null); // + 增加行
+		ll.setOrientation(LinearLayout.VERTICAL); // + 增加行
+		ll.addView(textViewTest); // + 增加行
+		Rlayout.addView(ll); // + 增加行 
+		*/
+		
 		final TextView EDPName1=(TextView)rootView.findViewById(R.id.F2_text_EDPName1);
 		final TextView EDPName2=(TextView)rootView.findViewById(R.id.F2_text_EDPName2);
 		final TextView EDPName3=(TextView)rootView.findViewById(R.id.F2_text_EDPName3);

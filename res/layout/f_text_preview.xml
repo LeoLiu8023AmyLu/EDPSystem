@@ -37,40 +37,11 @@
                 android:orientation="vertical" >
 
                 <RelativeLayout
+                    android:id="@+id/F3_RelativeLayout"
                     android:layout_width="768dp"
                     android:layout_height="450dp"
                     android:background="#EEAABB"
                     android:gravity="center" >
-
-                    <TextView
-                        android:id="@+id/F3_text_EDPName1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:text="姓名"
-                        android:textColor="#000000"
-                        android:textSize="90sp" />
-
-                    <TextView
-                        android:id="@+id/F3_text_EDPName2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="120dp"
-                        android:text="职务"
-                        android:textColor="#000000"
-                        android:textSize="60sp" />
-
-                    <TextView
-                        android:id="@+id/F3_text_EDPName3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="200dp"
-                        android:text="单位"
-                        android:textColor="#000000"
-                        android:textSize="60sp" />
 
                 </RelativeLayout>
 

@@ -30,9 +30,9 @@ public class MainActivity extends Activity {
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction().add(R.id.container, new MainWindow()).commit();
 		}
-		Set_Text_Size[0]=90;
-		Set_Text_Size[1]=45;
-		Set_Text_Size[2]=25;
+		Set_Text_Size[0]=100;
+		Set_Text_Size[1]=40;
+		Set_Text_Size[2]=35;
 		Set_Up_Down[0]=0;
 		Set_Up_Down[1]=0;
 		Set_Up_Down[2]=0;

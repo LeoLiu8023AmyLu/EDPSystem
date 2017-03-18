@@ -2,10 +2,10 @@
 <resources>
 
     <string-array name="TextFont">
-        <item>字体 1</item>
-        <item>字体 2</item>
-        <item>字体3</item>
-        <item>字体4</item>
-        <item>字体5</item>
+        <item>华文新魏</item>
+        <item>方正楷体</item>
+        <item>方正黑体</item>
+        <item>方正小标宋</item>
+        <item>微软雅黑</item>
     </string-array>
 </resources>

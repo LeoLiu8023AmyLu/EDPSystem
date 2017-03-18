@@ -2,6 +2,7 @@ package com.anshare.edpsystem;
 
 import android.app.Fragment;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;  
 import android.view.LayoutInflater;  
 import android.view.View;  
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.res.AssetManager; 
 
 
 public class FSetText extends Fragment {
@@ -62,6 +64,7 @@ public class FSetText extends Fragment {
         final EditText Input_EDPName1 =(EditText) rootView.findViewById(R.id.edittext_EDPName1);  
         final EditText Input_EDPName2 =(EditText) rootView.findViewById(R.id.edittext_EDPName2);  
         final EditText Input_EDPName3 =(EditText) rootView.findViewById(R.id.edittext_EDPName3);  
+        //final Typeface typeFace =Typeface.createFromAsset(rootView.getContext().getAssets(), "/fonts/HWXW.ttf");
         
         MainActivity MA0=(MainActivity) getActivity();
 		String[] GetText=new String[3];
@@ -113,15 +116,15 @@ public class FSetText extends Fragment {
 		        Toast.makeText(getActivity(), "保存完成",Toast.LENGTH_SHORT).show();
 				}
 			});
-        
         //将文本赋值  
         if(StrEDPName1.equals("")){
         	EDPName1.setText("文本内容1");
+        	//EDPName1.setTypeface(typeFace);
         }
         else
         {
         	EDPName1.setText(StrEDPName1.toCharArray(), 0, StrEDPName1.length());
-        	EDPName1.setTextColor(Color.RED);
+        	EDPName1.setTextColor(Color.RED);        	
         }
         if(StrEDPName2.equals("")){
         	EDPName2.setText("文本内容2");

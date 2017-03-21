@@ -57,4 +57,8 @@ EDPSystem 安夏电子席卡 Android 版本 客户端
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/1.ttf");
         textView1.setTypeface(typeface);
 	'
+	方法：
+	[Android 编程下字库的使用](http://www.cnblogs.com/sunzn/archive/2013/01/22/2871521.html)
+	[Android 字体库的使用](http://blog.csdn.net/zuiwuyuan/article/details/49454411)
 	4.通信问题 蓝牙、串口 方式 
+	5.Fragment 打开后还需要回收 否则会出现图层穿透(最下面图层的控件未显示，但是可以输入或者选择)

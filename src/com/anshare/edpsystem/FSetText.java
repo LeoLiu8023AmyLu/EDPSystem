@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.res.AssetManager; 
@@ -31,6 +32,9 @@ public class FSetText extends Fragment {
 		final TextView EDPName1=(TextView)rootView.findViewById(R.id.text_EDPName1);
 		final TextView EDPName2=(TextView)rootView.findViewById(R.id.text_EDPName2);
 		final TextView EDPName3=(TextView)rootView.findViewById(R.id.text_EDPName3);
+		final Spinner EDPName_Font_1=(Spinner) rootView.findViewById(R.id.spinner_EDPName1);
+		final Spinner EDPName_Font_2=(Spinner) rootView.findViewById(R.id.spinner_EDPName2);
+		final Spinner EDPName_Font_3=(Spinner) rootView.findViewById(R.id.spinner_EDPName3);
 		/*
 		 * 设置按钮
 		 * 返回、下一步、重置
@@ -113,6 +117,11 @@ public class FSetText extends Fragment {
 		        	EDPName3.setTextSize(25);
 		        	EDPName3.setTextColor(Color.BLUE);
 		        }
+		        String[] SPEDP_Font=new String[3];
+		        SPEDP_Font[0] = EDPName_Font_1.getSelectedItem().toString();
+		        SPEDP_Font[1] = EDPName_Font_2.getSelectedItem().toString();
+		        SPEDP_Font[2] = EDPName_Font_3.getSelectedItem().toString();
+		        // 这边需要进行字体对照匹配 华文新魏-->HWXW.tff
 		        MainActivity MA=(MainActivity) getActivity();
 		        MA.setEDPTextinformation(StrEDPName,StrEDPNameFont);//传递参数
 		        Toast.makeText(getActivity(), "保存完成",Toast.LENGTH_SHORT).show();

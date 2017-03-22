@@ -60,5 +60,12 @@ EDPSystem 安夏电子席卡 Android 版本 客户端
 	方法：
 	[Android 编程下字库的使用](http://www.cnblogs.com/sunzn/archive/2013/01/22/2871521.html)
 	[Android 字体库的使用](http://blog.csdn.net/zuiwuyuan/article/details/49454411)
+	之后就是下来菜单的功能实现：
+	[](https://www.oschina.net/question/54100_33274)
 	4.通信问题 蓝牙、串口 方式 
 	5.Fragment 打开后还需要回收 否则会出现图层穿透(最下面图层的控件未显示，但是可以输入或者选择)
+	6.MarkDown 学习网站：http://www.appinn.com/markdown/
+	
+## 工作记录：
+	2017.03.21 解决字体样式加载问题
+	2017.03.22 下拉列表控件

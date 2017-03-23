@@ -2,6 +2,7 @@ package com.anshare.edpsystem;
 
 import android.app.Fragment;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.renderscript.Sampler.Value;
 import android.view.Gravity;
@@ -18,9 +19,8 @@ import android.widget.Toast;
 
 public class FPreview extends Fragment {
 	
-	private String StrEDPName1="";  
-	private String StrEDPName2=""; 
-	private String StrEDPName3="";
+	private String[] StrEDPName=new String[3];
+	private Typeface[] EDPTF=new Typeface[3];
 	private int[] C_Up_Down=new int[3];
 	private int[] C_Left_Right=new int[3];
 	private int[] Text_Size=new int[3];
@@ -53,9 +53,9 @@ public class FPreview extends Fragment {
 		MainActivity MA0=(MainActivity) getActivity();
 		String[] GetText=new String[3];
 		GetText=MA0.getEDPTextinformation();
-		this.StrEDPName1=GetText[0];
-		this.StrEDPName2=GetText[1];
-		this.StrEDPName3=GetText[2];
+		this.StrEDPName[0]=GetText[0];
+		this.StrEDPName[1]=GetText[1];
+		this.StrEDPName[2]=GetText[2];
 		int[][] GetInput=MA0.getEDPTextPinformation();
 		C_Up_Down=GetInput[0];
 		C_Left_Right=GetInput[1];
@@ -63,16 +63,22 @@ public class FPreview extends Fragment {
 		Text_Size[0]=Text_Size[0]*6/5;
 		Text_Size[1]=Text_Size[1]*6/5;
 		Text_Size[2]=Text_Size[2]*6/5;
+		Typeface[] GetTextFont=new Typeface[3];
+		GetTextFont=MA0.getEDPTextFontinformation();
+		this.EDPTF=GetTextFont;
 		//设置文字信息
-		EDPName1.setText(StrEDPName1);
+		EDPName1.setText(StrEDPName[0]);
 		EDPName1.setTextSize(Text_Size[0]);
 		EDPName1.setTextColor(Color.BLACK);
-		EDPName2.setText(StrEDPName2);
+		EDPName1.setTypeface(EDPTF[0]);
+		EDPName2.setText(StrEDPName[1]);
 		EDPName2.setTextSize(Text_Size[1]);
 		EDPName2.setTextColor(Color.BLACK);
-		EDPName3.setText(StrEDPName3);
+		EDPName2.setTypeface(EDPTF[1]);
+		EDPName3.setText(StrEDPName[2]);
 		EDPName3.setTextSize(Text_Size[2]);
 		EDPName3.setTextColor(Color.BLACK);
+		EDPName3.setTypeface(EDPTF[2]);
 		int RLW=Rlayout.getLayoutParams().width;
 		int RLH=Rlayout.getLayoutParams().height;
 		top[0]=(RLH/3-80); // 10

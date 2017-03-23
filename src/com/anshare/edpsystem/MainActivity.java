@@ -79,6 +79,9 @@ public class MainActivity extends Activity {
 	{
 		//传递值 返回到函数
 		Typeface GetBack[]=new Typeface[3];
+		EDPTF[0] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[0]);
+		EDPTF[1] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[1]);
+		EDPTF[2] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[2]);
 		GetBack=EDPTF;
 		return GetBack;
 	}

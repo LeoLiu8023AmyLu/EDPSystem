@@ -6,6 +6,9 @@
         <item>方正楷体</item>
         <item>方正黑体</item>
         <item>方正小标宋</item>
+        <item>方正仿宋</item>
+        <item>仿宋_GB2312</item>
+        <item>楷体_GB2312</item>
         <item>微软雅黑</item>
     </string-array>
 </resources>

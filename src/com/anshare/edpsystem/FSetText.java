@@ -1,5 +1,7 @@
 package com.anshare.edpsystem;
 
+import java.util.HashMap;
+
 import android.app.Fragment;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -20,6 +22,7 @@ public class FSetText extends Fragment {
 	private String[] StrEDPName=new String[3];
 	private String[] StrEDPNameFont=new String[3];
 	private Typeface[] EDPTF=new Typeface[3];
+	private HashMap<String, String> EDPFont_Map = new HashMap<String, String>();
 	
 	public FSetText() {
 		
@@ -35,6 +38,17 @@ public class FSetText extends Fragment {
 		final Spinner EDPName_Font_1=(Spinner) rootView.findViewById(R.id.spinner_EDPName1);
 		final Spinner EDPName_Font_2=(Spinner) rootView.findViewById(R.id.spinner_EDPName2);
 		final Spinner EDPName_Font_3=(Spinner) rootView.findViewById(R.id.spinner_EDPName3);
+		/*
+		 * 初始化 字体字典
+		 */
+		EDPFont_Map.put("华文新魏", "fonts/HWXW.ttf");
+		EDPFont_Map.put("方正楷体", "fonts/FZKTJW.TTF");
+		EDPFont_Map.put("方正黑体", "fonts/FZHTJW.TTF");
+		EDPFont_Map.put("方正小标宋", "fonts/FZXBSJW.TTF");
+		EDPFont_Map.put("方正仿宋", "fonts/FZFSJW.TTF");
+		EDPFont_Map.put("仿宋_GB2312", "fonts/simfang.ttf");
+		EDPFont_Map.put("楷体_GB2312", "fonts/simkai.ttf");
+		EDPFont_Map.put("微软雅黑", "fonts/MSYH.TTF");
 		/*
 		 * 设置按钮
 		 * 返回、下一步、重置
@@ -122,9 +136,26 @@ public class FSetText extends Fragment {
 		        SPEDP_Font[1] = EDPName_Font_2.getSelectedItem().toString();
 		        SPEDP_Font[2] = EDPName_Font_3.getSelectedItem().toString();
 		        // 这边需要进行字体对照匹配 华文新魏-->HWXW.tff
+		        for(int i=0;i<3;i++)
+		        {
+		        	StrEDPNameFont[i]=EDPFont_Map.get(SPEDP_Font[i]);
+		        }
+		        
 		        MainActivity MA=(MainActivity) getActivity();
 		        MA.setEDPTextinformation(StrEDPName,StrEDPNameFont);//传递参数
+		        // 字体部分处理
+		        Typeface[] GetTextFont=new Typeface[3];
+				GetTextFont=MA.getEDPTextFontinformation();
+				EDPTF=GetTextFont;
+				EDPName1.setTypeface(EDPTF[0]);
+		        EDPName2.setTypeface(EDPTF[1]);
+		        EDPName3.setTypeface(EDPTF[2]);
+		        // 提示
 		        Toast.makeText(getActivity(), "保存完成",Toast.LENGTH_SHORT).show();
+		        Toast.makeText(getActivity(), "字体文件：\n"
+		        		+"字体1："+SPEDP_Font[0]+" 转换："+StrEDPNameFont[0]+" \n"
+		        		+"字体2："+SPEDP_Font[1]+" 转换："+StrEDPNameFont[1]+" \n"
+		        		+"字体3："+SPEDP_Font[2]+" 转换："+StrEDPNameFont[2]+"",Toast.LENGTH_SHORT).show();
 				}
 			});
         /*

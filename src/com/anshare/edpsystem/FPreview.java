@@ -37,6 +37,7 @@ public class FPreview extends Fragment {
 		//初始化 控件
 		final RelativeLayout Rlayout=(RelativeLayout) rootView.findViewById(R.id.F3_RelativeLayout);
 		right = bottom = 0;
+		// 设置控件 容器
 		final LinearLayout.LayoutParams params0 = new LinearLayout.LayoutParams(
 			    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
 		final LinearLayout.LayoutParams paramsA = new LinearLayout.LayoutParams(
@@ -49,7 +50,7 @@ public class FPreview extends Fragment {
 		final TextView EDPName1=new TextView(this.getActivity());
 		final TextView EDPName2=new TextView(this.getActivity());
 		final TextView EDPName3=new TextView(this.getActivity());
-		
+		// 获取 电子席卡的 文字、设置等信息
 		MainActivity MA0=(MainActivity) getActivity();
 		String[] GetText=new String[3];
 		GetText=MA0.getEDPTextinformation();
@@ -79,6 +80,7 @@ public class FPreview extends Fragment {
 		EDPName3.setTextSize(Text_Size[2]);
 		EDPName3.setTextColor(Color.BLACK);
 		EDPName3.setTypeface(EDPTF[2]);
+		// 设置位置
 		int RLW=Rlayout.getLayoutParams().width;
 		int RLH=Rlayout.getLayoutParams().height;
 		top[0]=(RLH/3-80); // 10
@@ -101,6 +103,7 @@ public class FPreview extends Fragment {
 		
 		final LinearLayout EDPLL3 = new LinearLayout(this.getActivity());
 		EDPLL3.setOrientation(LinearLayout.VERTICAL);
+		
 		params0.setMargins(0,0,0,0);
 		EDPLL1.addView(EDPName1);
 		EDPName1.setGravity(Gravity.CENTER);

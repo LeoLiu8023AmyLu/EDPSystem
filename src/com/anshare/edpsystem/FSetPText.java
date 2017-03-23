@@ -118,6 +118,7 @@ public class FSetPText extends Fragment {
 		
 		final LinearLayout EDPLL3 = new LinearLayout(this.getActivity());
 		EDPLL3.setOrientation(LinearLayout.VERTICAL);
+		
 		params0.setMargins(0,0,0,0);
 		EDPLL1.addView(EDPName1);
 		EDPName1.setGravity(Gravity.CENTER);

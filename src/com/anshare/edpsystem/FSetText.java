@@ -24,9 +24,7 @@ public class FSetText extends Fragment {
 	private Typeface[] EDPTF=new Typeface[3];
 	private HashMap<String, String> EDPFont_Map = new HashMap<String, String>();
 	
-	public FSetText() {
-		
-	}
+	public FSetText() { }
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
 	{

@@ -27,9 +27,7 @@ public class FSetPText extends Fragment {
 	private int EDP_Name_Flag=0, right, bottom;
 	private int[] left=new int[3], top=new int[3];
 
-	public FSetPText() {
-		
-	}
+	public FSetPText() { }
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
 	{
@@ -350,8 +348,6 @@ public class FSetPText extends Fragment {
 					EDPName3.setLayoutParams(paramsC);}
 				}
 			});
-		
-		
 		/**
 		 * 字体设置部分
 		 * 监听按钮：更改、增大、减小

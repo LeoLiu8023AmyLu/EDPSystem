@@ -27,9 +27,7 @@ public class FPreview extends Fragment {
 	private int right, bottom;
 	private int[] left=new int[3], top=new int[3];
 
-	public FPreview() {
-		
-	}
+	public FPreview() { }
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
 	{
@@ -158,7 +156,6 @@ public class FPreview extends Fragment {
 						Toast.LENGTH_LONG).show();
 				}
 			});
-        
 	    return rootView;    
 	} 
 }

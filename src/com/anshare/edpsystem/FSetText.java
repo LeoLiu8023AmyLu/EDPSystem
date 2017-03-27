@@ -124,6 +124,8 @@ public class FSetText extends Fragment {
 		        setSpinnerItemSelectedByValue(EDPName_Font_1,EDPFont_Map_Spinner.get(StrEDPNameFont[0]));
 				setSpinnerItemSelectedByValue(EDPName_Font_2,EDPFont_Map_Spinner.get(StrEDPNameFont[1]));
 				setSpinnerItemSelectedByValue(EDPName_Font_3,EDPFont_Map_Spinner.get(StrEDPNameFont[2]));
+				//保存 本页面设置信息
+				Toast.makeText(getActivity(), "已重置并保存完成",Toast.LENGTH_SHORT).show();
 				}
 			});
 		

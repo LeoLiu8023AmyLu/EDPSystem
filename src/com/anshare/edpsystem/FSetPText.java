@@ -236,7 +236,10 @@ public class FSetPText extends Fragment {
 				Text_UP_Down_Num.setText(-C_Up_Down[0]+"");
 				Text_Left_Right_Num.setText(C_Left_Right[0]+"");
 				Input_Text_Size.setText(Text_Size[0]+"");
-				Toast.makeText(getActivity(), "已重置设置",Toast.LENGTH_SHORT).show();
+				//保存 本页面设置信息
+				MainActivity MA=(MainActivity) getActivity();
+				MA.setEDPTextPinformation(C_Up_Down, C_Left_Right, Text_Size);
+				Toast.makeText(getActivity(), "已重置设置，并保存完成",Toast.LENGTH_SHORT).show();
 				}
 			});
 		/**

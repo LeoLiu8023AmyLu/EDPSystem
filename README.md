@@ -46,7 +46,7 @@ EDPSystem 安夏电子席卡 Android 版本 客户端
 
 	1.显示问题 TextView 定位问题 setPadding 以及 setMargin，另外fragment 层穿透，或者替换  已经解决 *[KO] 2017.03.17*
 	[解决方法](https://segmentfault.com/q/1010000004032766?_ea=464119)
-	[已经解决]
+	【已经解决】
 	2.画布缩放问题 
 	(128/75)*5 ---> (128/75)*6 ---> (128/75)*8   效果还在优化 
 	目前发现问题是： 字体大小并不与画面大小变化一致
@@ -62,11 +62,14 @@ EDPSystem 安夏电子席卡 Android 版本 客户端
 	[Android 字体库的使用](http://blog.csdn.net/zuiwuyuan/article/details/49454411)
 	之后就是下来菜单的功能实现：
 	[](https://www.oschina.net/question/54100_33274)
+	【已经解决】
 	4.通信问题 蓝牙、串口 方式 
 	5.Fragment 打开后还需要回收 否则会出现图层穿透(最下面图层的控件未显示，但是可以输入或者选择)
 	6.MarkDown 学习网站：http://www.appinn.com/markdown/
+	7.Spinner 设置初始值
 	
 ## 工作记录：
 	2017.03.21 解决字体样式加载问题
 	2017.03.22 下拉列表控件
 	2017.03.23 利用HashMap将 下拉列表得到的字体名称转化为路径，然后传递给MainActivity 经过资源获取到Typeface类型对象，然后再传递回去，从而改变字体 [大进步] 然后优化程序，将文本、字体类型都转成数组形式，方便接口程序进行对接。
+	2017.03.27 全局软件改编码为 utf-8、优化席卡文本输入页面程序

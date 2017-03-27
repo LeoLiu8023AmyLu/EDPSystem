@@ -17,7 +17,7 @@ public class FModelchoose extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
 	{
 		View rootView = inflater.inflate(R.layout.f_modelchoose, container, false);
-		//³õÊ¼»¯ ¿Ø¼ş
+		// åˆå§‹åŒ–æ§ä»¶
 		TextView FSet1_0Dital1=(TextView)rootView.findViewById(R.id.FSet1_0Dital1);
 		TextView FSet1_0Dital2=(TextView)rootView.findViewById(R.id.FSet1_0Dital2);
 		TextView FSet1_0Dital3=(TextView)rootView.findViewById(R.id.FSet1_0Dital3);
@@ -42,12 +42,12 @@ public class FModelchoose extends Fragment {
 			@Override
 			public void onClick(View v) {
 				//do something
-				Toast.makeText(getActivity(), "Ôİ²»Ö§³Ö£¬ÇëµÈ´ı¿ª·¢Íê³É",Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "æš‚ä¸æ”¯æŒæ­¤é¡¹åŠŸèƒ½ï¼Œè¯·ç­‰å¾…å¼€å‘å®Œæˆ",Toast.LENGTH_SHORT).show();
 				}
 			});
-		FSet1_0Dital1.setText("Ä£°åÃû³Æ");
-		FSet1_0Dital2.setText("µ¼ÈëÊ±¼ä");
-		FSet1_0Dital3.setText("ÏêÇé£º");
+		FSet1_0Dital1.setText("æ¨¡æ¿åç§°");
+		FSet1_0Dital2.setText("å¯¼å…¥æ—¶é—´");
+		FSet1_0Dital3.setText("è¯¦æƒ…ï¼š");
 	    return rootView;    
 	} 
 }

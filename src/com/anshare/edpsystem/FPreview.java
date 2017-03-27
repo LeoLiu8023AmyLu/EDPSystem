@@ -4,13 +4,11 @@ import android.app.Fragment;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.renderscript.Sampler.Value;
 import android.view.Gravity;
 import android.view.LayoutInflater;  
 import android.view.View;  
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -32,10 +30,10 @@ public class FPreview extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
 	{
 		View rootView = inflater.inflate(R.layout.f_text_preview, container, false);
-		//³õÊ¼»¯ ¿Ø¼ş
+		//åˆå§‹åŒ– æ§ä»¶
 		final RelativeLayout Rlayout=(RelativeLayout) rootView.findViewById(R.id.F3_RelativeLayout);
 		right = bottom = 0;
-		// ÉèÖÃ¿Ø¼ş ÈİÆ÷
+		// è®¾ç½®æ§ä»¶ å®¹å™¨
 		final LinearLayout.LayoutParams params0 = new LinearLayout.LayoutParams(
 			    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
 		final LinearLayout.LayoutParams paramsA = new LinearLayout.LayoutParams(
@@ -44,28 +42,28 @@ public class FPreview extends Fragment {
 			    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 		final LinearLayout.LayoutParams paramsC = new LinearLayout.LayoutParams(
 			    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-		// Ö÷ÒªÏÔÊ¾²¿·Ö
+		// ä¸»è¦æ˜¾ç¤ºéƒ¨åˆ†
 		final TextView EDPName1=new TextView(this.getActivity());
 		final TextView EDPName2=new TextView(this.getActivity());
 		final TextView EDPName3=new TextView(this.getActivity());
-		// »ñÈ¡ µç×ÓÏ¯¿¨µÄ ÎÄ×Ö¡¢ÉèÖÃµÈĞÅÏ¢
+		// è·å– ç”µå­å¸­å¡çš„ æ–‡å­—ã€è®¾ç½®ç­‰ä¿¡æ¯
 		MainActivity MA0=(MainActivity) getActivity();
 		String[] GetText=new String[3];
-		GetText=MA0.getEDPTextinformation();
+		GetText=MA0.getEDPTextinformation();	// è·å–å­—ä½“æ–‡æœ¬ä¿¡æ¯
 		this.StrEDPName[0]=GetText[0];
 		this.StrEDPName[1]=GetText[1];
 		this.StrEDPName[2]=GetText[2];
-		int[][] GetInput=MA0.getEDPTextPinformation();
+		int[][] GetInput=MA0.getEDPTextPinformation();	// è·å–å­—ä½“ä½ç½®å¤§å°ä¿¡æ¯
 		C_Up_Down=GetInput[0];
 		C_Left_Right=GetInput[1];
 		Text_Size=GetInput[2];
 		Text_Size[0]=Text_Size[0]*6/5;
 		Text_Size[1]=Text_Size[1]*6/5;
 		Text_Size[2]=Text_Size[2]*6/5;
-		Typeface[] GetTextFont=new Typeface[3];
-		GetTextFont=MA0.getEDPTextFontinformation();
+		Typeface[] GetTextFont=new Typeface[3];	//å­—ä½“
+		GetTextFont=MA0.getEDPTextFontSetting();
 		this.EDPTF=GetTextFont;
-		//ÉèÖÃÎÄ×ÖĞÅÏ¢
+		//è®¾ç½®æ–‡å­—ä¿¡æ¯
 		EDPName1.setText(StrEDPName[0]);
 		EDPName1.setTextSize(Text_Size[0]);
 		EDPName1.setTextColor(Color.BLACK);
@@ -78,19 +76,19 @@ public class FPreview extends Fragment {
 		EDPName3.setTextSize(Text_Size[2]);
 		EDPName3.setTextColor(Color.BLACK);
 		EDPName3.setTypeface(EDPTF[2]);
-		// ÉèÖÃÎ»ÖÃ
+		// è®¾ç½®ä½ç½®
 		int RLW=Rlayout.getLayoutParams().width;
 		int RLH=Rlayout.getLayoutParams().height;
 		top[0]=(RLH/3-80); // 10
 		top[1]=(RLH*2/3-70); // 120
 		top[2]=(RLH-120); //200
-		//µÚÒ»¸öÎÄ×ÖÎ»ÖÃ
+		//ç¬¬ä¸€ä¸ªæ–‡å­—ä½ç½®
 		paramsA.setMargins(left[0]+C_Left_Right[0], top[0]+C_Up_Down[0], right, bottom);
 		EDPName1.setLayoutParams(paramsA);
-		//µÚ¶ş¸öÎÄ×ÖÎ»ÖÃ
+		//ç¬¬äºŒä¸ªæ–‡å­—ä½ç½®
 		paramsB.setMargins(left[1]+C_Left_Right[1], top[1]+C_Up_Down[1], right, bottom);
 		EDPName2.setLayoutParams(paramsB);
-		//µÚÈı¸öÎÄ×ÖÎ»ÖÃ
+		//ç¬¬ä¸‰ä¸ªæ–‡å­—ä½ç½®
 		paramsC.setMargins(left[2]+C_Left_Right[2], top[2]+C_Up_Down[2], right, bottom);
 		EDPName3.setLayoutParams(paramsC);
 		final LinearLayout EDPLL1 = new LinearLayout(this.getActivity());
@@ -117,15 +115,15 @@ public class FPreview extends Fragment {
 		Rlayout.addView(EDPLL2);
 		Rlayout.addView(EDPLL3);
 		//
-		Toast.makeText(getActivity(), "RLW "+RLW+"  RLH "+RLH+"\n"
+		Toast.makeText(getActivity(), "è°ƒè¯•ä¿¡æ¯ï¼š\nç”»å¸ƒå°ºå¯¸ RLW "+RLW+"  RLH "+RLH+"\n"
 				+"EDPName1 Left "+left[0]+" L&R "+C_Left_Right[0]+" Top "+top[0]+" U&D "+C_Up_Down[0]+"\n"
 				+"EDPName2 Left "+left[1]+" L&R "+C_Left_Right[1]+" Top "+top[1]+" U&D "+C_Up_Down[1]+"\n"
 				+"EDPName3 Left "+left[2]+" L&R "+C_Left_Right[2]+" Top "+top[2]+" U&D "+C_Up_Down[2]+"",Toast.LENGTH_LONG).show();
 		/**
-		 * Ò³Ãæ¿ØÖÆ²¿·Ö
-		 * ¹¦ÄÜ£ººóÍË£¬Ç°½ø£¬ÖØÖÃ
+		 * é¡µé¢æ§åˆ¶éƒ¨åˆ†
+		 * @ åŠŸèƒ½ï¼šåé€€ï¼Œå‰è¿›ï¼Œé‡ç½®
 		 */
-		//Ò³Ãæ¿ØÖÆ
+		//é¡µé¢æ§åˆ¶
 		Button FSet4_back=(Button)rootView.findViewById(R.id.FSet4_back);
 		FSet4_back.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -142,13 +140,13 @@ public class FPreview extends Fragment {
 				getFragmentManager().beginTransaction().replace(R.id.container, new MainWindow()).commit();
 				}
 			});
-		//Ô¤ÀÀÏÔÊ¾
+		//é¢„è§ˆæ˜¾ç¤º
 		Button FSet4_view=(Button)rootView.findViewById(R.id.FSet4_preview);
 		FSet4_view.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				//do something
-				Toast.makeText(getActivity(), "´«ÊäÍê³É",Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "ä¼ è¾“å®Œæˆ",Toast.LENGTH_SHORT).show();
 				Toast.makeText(getActivity(), 
 						"EDPName1 Left "+left[0]+"\t L&R "+C_Left_Right[0]+"\t Top "+top[0]+"\t U&D "+C_Up_Down[0]+"\n"
 						+"EDPName2 Left "+left[1]+"\t L&R "+C_Left_Right[1]+"\t Top "+top[1]+"\t U&D "+C_Up_Down[1]+"\n"

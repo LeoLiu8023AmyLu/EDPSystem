@@ -32,21 +32,21 @@ public class MainWindow extends Fragment {
 			@Override
 			public void onClick(View v) {
 				//do something
-				Toast.makeText(getActivity(), "Ôİ²»Ö§³Ö£¬ÇëµÈ´ı¿ª·¢Íê³É",Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity(), "æš‚ä¸æ”¯æŒæ­¤é¡¹åŠŸèƒ½ï¼Œè¯·ç­‰å¾…å¼€å‘å®Œæˆ",Toast.LENGTH_SHORT).show();
 				}
 			});
-		//³õÊ¼»¯ ¿Ø¼ş
+		//åˆå§‹åŒ– æ§ä»¶
 		TextView MainTime=(TextView)rootView.findViewById(R.id.MainTime);
 		TextView MainDate=(TextView)rootView.findViewById(R.id.MainDate);
 		Calendar c = Calendar.getInstance();  
-		//»ñÈ¡Ê±¼ä£¬·Ö±ğÉèÖÃÊ±¼äÓëÈÕÆÚ
+		//è·å–æ—¶é—´ï¼Œåˆ†åˆ«è®¾ç½®æ—¶é—´ä¸æ—¥æœŸ
 		long sysTime = System.currentTimeMillis();
 		CharSequence sysTimeStr = DateFormat.format("HH:mm:ss", sysTime);
         CharSequence sysDateStr = DateFormat.format("yyyy-MM-dd", sysTime);
-		//ÍÆËãĞÇÆÚ
+		//æ¨ç®—æ˜ŸæœŸ
         int week =c.get(Calendar.DAY_OF_WEEK);
-		String[] weekname={"ÖÜÈÕ","ÖÜÒ»","ÖÜ¶ş","ÖÜÈı","ÖÜËÄ","ÖÜÎå","ÖÜÁù"};
-		//½«¼ÆËãµÃµ½µÄÊ±¼äĞÅÏ¢·¢ËÍ¸øUI
+		String[] weekname={"å‘¨æ—¥","å‘¨ä¸€","å‘¨äºŒ","å‘¨ä¸‰","å‘¨å››","å‘¨äº”","å‘¨å…­"};
+		//å°†è®¡ç®—å¾—åˆ°çš„æ—¶é—´ä¿¡æ¯å‘é€ç»™UI
 		MainTime.setText(sysTimeStr);
 		MainDate.setText(sysDateStr+"  "+weekname[week-1]);
 		return rootView;   

@@ -27,7 +27,10 @@ public class MainActivity extends Activity {
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction().add(R.id.container, new MainWindow()).commit();
 		}
-		// ³õÊ¼»¯²ÎÊı
+		/*
+		 * åˆå§‹åŒ– ç”µå­å¸­å¡çš„æ•°å€¼
+		 * @ å­—ä½“å¤§å°ã€å­—ä½“ä¸Šä¸‹ä½ç½®ã€å­—ä½“å·¦å³ä½ç½®ã€æ˜¾ç¤ºæ–‡å­—ã€å­—ä½“
+		 */
 		Set_Text_Size[0]=100;
 		Set_Text_Size[1]=40;
 		Set_Text_Size[2]=35;
@@ -40,59 +43,64 @@ public class MainActivity extends Activity {
 		Set_Left_Right[1]=0;
 		Set_Left_Right[2]=0;
 		
-		StrEDPName[0]="°²ÏÄ¿Æ¼¼";
-		StrEDPName[1]="Anshare";
-		StrEDPName[2]="ÄÏ¾©°²ÏÄµç×Ó¿Æ¼¼ÓĞÏŞ¹«Ë¾";
-		
-		StrEDPNameFont[0]="fonts/HWXW.ttf";
-		StrEDPNameFont[1]="fonts/FZXBSJW.TTF";
-		StrEDPNameFont[2]="fonts/FZKTJW.TTF";
+		for(int i=0;i<3;i++)
+        {
+        	StrEDPName[i]="æ–‡æœ¬å†…å®¹"+Integer.toString(i+1)+"";	// åˆå§‹åŒ– æ–‡æœ¬ä¿¡æ¯
+        	StrEDPNameFont[i]="fonts/HWXW.ttf";				// åˆå§‹åŒ– æ–‡æœ¬å­—ä½“
+        }
 		
 		EDPTF[0] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[0]);
 		EDPTF[1] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[1]);
 		EDPTF[2] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[2]);
 		
-		// ¸üĞÂÊ±¼ä (×îºóÍË³öµÄÊ±ºòÒª»ØÊÕ×ÊÔ´)
+		// ç”¨ä¸€ä¸ªçº¿ç¨‹ä¸æ–­æ›´æ–°æ—¶é—´
 		new TimeThread().start();
 	}
 	
 	/*
-	 * ´«µİ ÎÄ×ÖĞÅÏ¢¼°×ÖÌåĞÅÏ¢
-	 * ´«µİ ÎÄ±¾ĞÅÏ¢  ×ÖÌåĞÅÏ¢
+	 * é‡ç‚¹æ¥å£ç¨‹åº
+	 * @ æ–‡å­—ä¿¡æ¯ã€å­—ä½“ä¿¡æ¯çš„ä¼ å…¥æ¥å£ï¼Œä¼ å‡ºå‡½æ•°
 	 */
 	public void setEDPTextinformation(String[] Name,String[] Name_Font)
 	{
-		// ´«µİÊıÖµµ½ MainActivity
+		//ä¼ å…¥æ–‡æœ¬ä¿¡æ¯æ•°ç»„[]ã€å­—ä½“ä¿¡æ¯æ•°ç»„[]
 		this.StrEDPName=Name;
 		this.StrEDPNameFont=Name_Font;	
 	} 
 	
 	public String[] getEDPTextinformation()
 	{
-		//´«µİÖµ ·µ»Øµ½º¯Êı
+		//è¿”å›æ–‡æœ¬ä¿¡æ¯æ•°ç»„
 		String GetBack[]=new String[3];
 		GetBack=StrEDPName;
 		return GetBack;
 	}
-	
-	public Typeface[] getEDPTextFontinformation()
+	public String[] getEDPTextFontinformation()
 	{
-		//´«µİÖµ ·µ»Øµ½º¯Êı
-		Typeface GetBack[]=new Typeface[3];
-		EDPTF[0] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[0]);
-		EDPTF[1] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[1]);
-		EDPTF[2] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[2]);
+		//è¿”å›æ–‡æœ¬ä¿¡æ¯æ•°ç»„
+		String GetBack[]=new String[3];
+		GetBack=StrEDPNameFont;
+		return GetBack;
+	}
+	
+	public Typeface[] getEDPTextFontSetting()
+	{
+		//è¿”å›å­—ä½“å¯¹è±¡ç±»å‹æ•°ç»„[]
+		Typeface GetBack[]=new Typeface[3]; // æ–°å»ºå­—ä½“å¯¹è±¡ç±»å‹
+		EDPTF[0] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[0]); //åŠ è½½å­—ä½“
+		EDPTF[1] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[1]); //åŠ è½½å­—ä½“
+		EDPTF[2] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[2]); //åŠ è½½å­—ä½“
 		GetBack=EDPTF;
 		return GetBack;
 	}
 	
 	/*
-	 * ´«µİº¯Êı½Ó¿Ú
-	 * ´«µİ×ÖÌåµÄÎ»ÖÃĞÅÏ¢ ´óĞ¡ĞÅÏ¢ 
+	 * é‡ç‚¹æ¥å£ç¨‹åº
+	 * @ æ–‡å­—ä½ç½®ã€å¤§å°çš„ä¼ å…¥æ¥å£ï¼Œä¼ å‡ºå‡½æ•°
 	 */
 	public void setEDPTextPinformation(int[] Up_Down,int[] Left_Right,int[] Text_Size)
 	{
-		//´«µİÖµ ÉèÖÃ ×ÖÌåÎ»ÖÃ ×ÖÌå´óĞ¡
+		//ä¼ å…¥å­—ä½“ä¸Šä¸‹ä½ç½®æ•°ç»„[]ï¼Œå­—ä½“å·¦å³ä½ç½®æ•°ç»„[]ï¼Œå­—ä½“å¤§å°æ•°ç»„[]
 		this.Set_Up_Down=Up_Down;
 		this.Set_Left_Right=Left_Right;
 		this.Set_Text_Size=Text_Size;	
@@ -100,7 +108,7 @@ public class MainActivity extends Activity {
 	
 	public int[][] getEDPTextPinformation()
 	{
-		//´«µİÖµ ×ÖÌåÎ»ÖÃ ×ÖÌå´óĞ¡
+		//è¿”å› ç”± å­—ä½“ä¸Šä¸‹ä½ç½®æ•°ç»„[]ï¼Œå­—ä½“å·¦å³ä½ç½®æ•°ç»„[]ï¼Œå­—ä½“å¤§å°æ•°ç»„[] ç»„æˆçš„äºŒç»´æ•°ç»„
 		int[][] GetBack=new int[3][3];
 		GetBack[0]=this.Set_Up_Down;
 		GetBack[1]=this.Set_Left_Right;
@@ -113,7 +121,7 @@ public class MainActivity extends Activity {
        public void run () {
             do {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(1000);//ä¸€ç§’çš„æ—¶é—´é—´éš”
                     Message msg = new Message();
                     msg.what = msgKey1;
                     mHandler.sendMessage(msg);
@@ -130,18 +138,18 @@ public class MainActivity extends Activity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case msgKey1:
-                	//Ê±¼ä¸üĞÂ
+                	//è·å–æ—¶é—´
                     long sysTime = System.currentTimeMillis();
-                    CharSequence sysTimeStr = DateFormat.format("HH:mm:ss", sysTime);
-                    CharSequence sysDateStr = DateFormat.format("yyyy-MM-dd", sysTime);
-        			//³õÊ¼»¯¿Ø¼ş
+                    CharSequence sysTimeStr = DateFormat.format("HH:mm:ss", sysTime);	// è·å–æ—¶é—´
+                    CharSequence sysDateStr = DateFormat.format("yyyy-MM-dd", sysTime);	// è·å–æ—¥æœŸ
+        			//è·å–æ§ä»¶
                     TextView MainTime=(TextView)findViewById(R.id.MainTime);
         			TextView MainDate=(TextView)findViewById(R.id.MainDate);
-        			//³õÊ¼»¯ ÈÕÀú
+        			//è§£ç®—æ—¶é—´
         			Calendar c = Calendar.getInstance();
         			int week =c.get(Calendar.DAY_OF_WEEK);
-        			String[] weekname={"ÖÜÈÕ","ÖÜÒ»","ÖÜ¶ş","ÖÜÈı","ÖÜËÄ","ÖÜÎå","ÖÜÁù"};
-        			//ÉèÖÃUI
+        			String[] weekname={"å‘¨æ—¥","å‘¨ä¸€","å‘¨äºŒ","å‘¨ä¸‰","å‘¨å››","å‘¨äº”","å‘¨å…­"};
+        			//æ›´æ–° UI
         			MainTime.setText(sysTimeStr);
         			MainDate.setText(sysDateStr+"  "+weekname[week-1]);
                     break;             

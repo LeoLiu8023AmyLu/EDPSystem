@@ -9,12 +9,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;  
 import android.view.View;  
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.res.AssetManager; 
 
 
 public class FSetText extends Fragment {
@@ -23,33 +24,67 @@ public class FSetText extends Fragment {
 	private String[] StrEDPNameFont=new String[3];
 	private Typeface[] EDPTF=new Typeface[3];
 	private HashMap<String, String> EDPFont_Map = new HashMap<String, String>();
+	private HashMap<String, String> EDPFont_Map_Spinner = new HashMap<String, String>();
 	
 	public FSetText() { }
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
 	{
 		View rootView = inflater.inflate(R.layout.f_textinput, container, false);
-		//³õÊ¼»¯ ÏÔÊ¾¿Ø¼ş
+		/*
+		 * åˆå§‹åŒ– å­—ä½“å­—å…¸
+		 * @ å­—ä½“-->å­—ä½“è·¯å¾„
+		 */
+		EDPFont_Map.put("åæ–‡æ–°é­", "fonts/HWXW.ttf");
+		EDPFont_Map.put("æ–¹æ­£æ¥·ä½“", "fonts/FZKTJW.TTF");
+		EDPFont_Map.put("æ–¹æ­£é»‘ä½“", "fonts/FZHTJW.TTF");
+		EDPFont_Map.put("æ–¹æ­£å°æ ‡å®‹", "fonts/FZXBSJW.TTF");
+		EDPFont_Map.put("æ–¹æ­£ä»¿å®‹", "fonts/FZFSJW.TTF");
+		EDPFont_Map.put("ä»¿å®‹_GB2312", "fonts/simfang.ttf");
+		EDPFont_Map.put("æ¥·ä½“_GB2312", "fonts/simkai.ttf");
+		EDPFont_Map.put("å¾®è½¯é›…é»‘", "fonts/MSYH.TTF");
+		// ä¸º Spinner é€‰æ‹©ç”¨çš„éå† Map
+		EDPFont_Map_Spinner.put("fonts/HWXW.ttf","åæ–‡æ–°é­");
+		EDPFont_Map_Spinner.put("fonts/FZKTJW.TTF","æ–¹æ­£æ¥·ä½“");
+		EDPFont_Map_Spinner.put("fonts/FZHTJW.TTF","æ–¹æ­£é»‘ä½“");
+		EDPFont_Map_Spinner.put("fonts/FZXBSJW.TTF","æ–¹æ­£å°æ ‡å®‹");
+		EDPFont_Map_Spinner.put("fonts/FZFSJW.TTF","æ–¹æ­£ä»¿å®‹");
+		EDPFont_Map_Spinner.put("fonts/simfang.ttf","ä»¿å®‹_GB2312");
+		EDPFont_Map_Spinner.put("fonts/simkai.ttf","æ¥·ä½“_GB2312");
+		EDPFont_Map_Spinner.put("fonts/MSYH.TTF","å¾®è½¯é›…é»‘");
+		//åˆå§‹åŒ– æ˜¾ç¤ºæ§ä»¶
 		final TextView EDPName1=(TextView)rootView.findViewById(R.id.text_EDPName1);
 		final TextView EDPName2=(TextView)rootView.findViewById(R.id.text_EDPName2);
 		final TextView EDPName3=(TextView)rootView.findViewById(R.id.text_EDPName3);
+		// åˆå§‹åŒ–ä¸‹æ‹‰èœå• 
 		final Spinner EDPName_Font_1=(Spinner) rootView.findViewById(R.id.spinner_EDPName1);
 		final Spinner EDPName_Font_2=(Spinner) rootView.findViewById(R.id.spinner_EDPName2);
 		final Spinner EDPName_Font_3=(Spinner) rootView.findViewById(R.id.spinner_EDPName3);
+		// åˆå§‹åŒ– è¾“å…¥æ–‡æœ¬æ¡†
+        final EditText Input_EDPName1 =(EditText) rootView.findViewById(R.id.edittext_EDPName1);  
+        final EditText Input_EDPName2 =(EditText) rootView.findViewById(R.id.edittext_EDPName2);  
+        final EditText Input_EDPName3 =(EditText) rootView.findViewById(R.id.edittext_EDPName3);  
+        // åˆå§‹åŒ–æ•°å€¼ æ–‡æœ¬ä¿¡æ¯ã€å­—ä½“ä¿¡æ¯
+        MainActivity MA0=(MainActivity) getActivity();
+		String[] GetText=new String[3];
+		GetText=MA0.getEDPTextinformation();
+		this.StrEDPName=GetText;
+		String[] GetFont=new String[3];
+		GetFont=MA0.getEDPTextFontinformation();
+		this.StrEDPNameFont=GetFont;
+		Typeface[] GetTextFont=new Typeface[3];
+		GetTextFont=MA0.getEDPTextFontSetting();
+		this.EDPTF=GetTextFont;
+		Input_EDPName1.setText(StrEDPName[0]);
+		Input_EDPName2.setText(StrEDPName[1]);
+		Input_EDPName3.setText(StrEDPName[2]);
+		// è®¾ç½® ä¸‹æ‹‰åˆ—è¡¨ é»˜è®¤é€‰æ‹©å€¼
+		setSpinnerItemSelectedByValue(EDPName_Font_1,EDPFont_Map_Spinner.get(StrEDPNameFont[0]));
+		setSpinnerItemSelectedByValue(EDPName_Font_2,EDPFont_Map_Spinner.get(StrEDPNameFont[1]));
+		setSpinnerItemSelectedByValue(EDPName_Font_3,EDPFont_Map_Spinner.get(StrEDPNameFont[2]));
 		/*
-		 * ³õÊ¼»¯ ×ÖÌå×Öµä
-		 */
-		EDPFont_Map.put("»ªÎÄĞÂÎº", "fonts/HWXW.ttf");
-		EDPFont_Map.put("·½Õı¿¬Ìå", "fonts/FZKTJW.TTF");
-		EDPFont_Map.put("·½ÕıºÚÌå", "fonts/FZHTJW.TTF");
-		EDPFont_Map.put("·½ÕıĞ¡±êËÎ", "fonts/FZXBSJW.TTF");
-		EDPFont_Map.put("·½Õı·ÂËÎ", "fonts/FZFSJW.TTF");
-		EDPFont_Map.put("·ÂËÎ_GB2312", "fonts/simfang.ttf");
-		EDPFont_Map.put("¿¬Ìå_GB2312", "fonts/simkai.ttf");
-		EDPFont_Map.put("Î¢ÈíÑÅºÚ", "fonts/MSYH.TTF");
-		/*
-		 * ÉèÖÃ°´Å¥
-		 * ·µ»Ø¡¢ÏÂÒ»²½¡¢ÖØÖÃ
+		 * è®¾ç½®æŒ‰é’®
+		 * è¿”å›ã€ä¸‹ä¸€æ­¥ã€é‡ç½®
 		 */
 		Button FSet2_back=(Button)rootView.findViewById(R.id.FSet2_back);
 		FSet2_back.setOnClickListener(new View.OnClickListener() {
@@ -69,130 +104,115 @@ public class FSetText extends Fragment {
 		FSet2_reset.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				EDPName1.setText("ÎÄ±¾ÄÚÈİ1");
-				EDPName2.setText("ÎÄ±¾ÄÚÈİ2");
-				EDPName3.setText("ÎÄ±¾ÄÚÈİ3");
+				for(int i=0;i<3;i++)
+		        {
+					StrEDPName[i]="æ–‡æœ¬å†…å®¹"+Integer.toString(i+1)+"";
+		        	StrEDPNameFont[i]="fonts/HWXW.ttf";
+		        }
+				EDPName1.setText(StrEDPName[0]);
+				EDPName2.setText(StrEDPName[1]);
+				EDPName3.setText(StrEDPName[2]);
+		        MainActivity MA=(MainActivity) getActivity();
+		        MA.setEDPTextinformation(StrEDPName,StrEDPNameFont);//ä¼ é€’å‚æ•°
+		        // å­—ä½“éƒ¨åˆ†å¤„ç†
+		        Typeface[] GetTextFont=new Typeface[3];
+				GetTextFont=MA.getEDPTextFontSetting();
+				EDPTF=GetTextFont;
+				EDPName1.setTypeface(EDPTF[0]);
+		        EDPName2.setTypeface(EDPTF[1]);
+		        EDPName3.setTypeface(EDPTF[2]);
+		        setSpinnerItemSelectedByValue(EDPName_Font_1,EDPFont_Map_Spinner.get(StrEDPNameFont[0]));
+				setSpinnerItemSelectedByValue(EDPName_Font_2,EDPFont_Map_Spinner.get(StrEDPNameFont[1]));
+				setSpinnerItemSelectedByValue(EDPName_Font_3,EDPFont_Map_Spinner.get(StrEDPNameFont[2]));
 				}
 			});
-        /*
-         * ÉèÖÃÊäÈë¿ò ¿Ø¼ş
-         */
-        final EditText Input_EDPName1 =(EditText) rootView.findViewById(R.id.edittext_EDPName1);  
-        final EditText Input_EDPName2 =(EditText) rootView.findViewById(R.id.edittext_EDPName2);  
-        final EditText Input_EDPName3 =(EditText) rootView.findViewById(R.id.edittext_EDPName3);  
-        
-        MainActivity MA0=(MainActivity) getActivity();
-		String[] GetText=new String[3];
-		GetText=MA0.getEDPTextinformation();
-		this.StrEDPName=GetText;
-		Typeface[] GetTextFont=new Typeface[3];
-		GetTextFont=MA0.getEDPTextFontinformation();
-		this.EDPTF=GetTextFont;
+		
+       
 		/*
-         * ÖØÒªµÄÓ¦ÓÃ°´Å¥
-         * ÉèÖÃÎÄ±¾ĞÅÏ¢ ±£´æĞÅÏ¢
+         * é‡è¦çš„åº”ç”¨æŒ‰é’®
+         * è®¾ç½®æ–‡æœ¬ä¿¡æ¯ ä¿å­˜ä¿¡æ¯
          */
         Button FSet2_TextSet=(Button)rootView.findViewById(R.id.button_textset);
         FSet2_TextSet.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//»ñÈ¡ÎÄ±¾ĞÅÏ¢
+				// è·å–æ–‡æœ¬ä¿¡æ¯
 				StrEDPName[0]=Input_EDPName1.getText().toString();
 		        StrEDPName[1]=Input_EDPName2.getText().toString();
 		        StrEDPName[2]=Input_EDPName3.getText().toString();
-		        //½«ÎÄ±¾¸³Öµ  
-		        if(StrEDPName[0].equals("")){
-		        	EDPName1.setText("ÎÄ±¾ÄÚÈİ1");
-		        }
-		        else
-		        {
-		        	EDPName1.setText(StrEDPName[0].toCharArray(), 0, StrEDPName[0].length());
-		        	EDPName1.setTextColor(Color.RED);
-		        }
-		        if(StrEDPName[1].equals("")){
-		        	EDPName2.setText("ÎÄ±¾ÄÚÈİ2");
-		        	EDPName2.setTextSize(45);
-		        }
-		        else
-		        {
-		        	EDPName2.setText(StrEDPName[1].toCharArray(), 0, StrEDPName[1].length());
-		        	EDPName2.setTextSize(45);
-		        	EDPName2.setTextColor(Color.GREEN);
-		        }
-		        if(StrEDPName[2].equals("")){
-		        	EDPName3.setText("ÎÄ±¾ÄÚÈİ3");
-		        	EDPName3.setTextSize(25);
-		        }
-		        else
-		        {
-		        	EDPName3.setText(StrEDPName[2].toCharArray(), 0, StrEDPName[2].length());
-		        	EDPName3.setTextSize(25);
-		        	EDPName3.setTextColor(Color.BLUE);
-		        }
+		        // å°†æ–‡æœ¬èµ‹å€¼  
+		        if(StrEDPName[0].equals("")){ EDPName1.setText("æ–‡æœ¬å†…å®¹1");}
+		        else{EDPName1.setText(StrEDPName[0]);}
+		        if(StrEDPName[1].equals("")){ EDPName2.setText("æ–‡æœ¬å†…å®¹2");}
+		        else{EDPName2.setText(StrEDPName[1]);}
+		        if(StrEDPName[2].equals("")){ EDPName3.setText("æ–‡æœ¬å†…å®¹3");}
+		        else{EDPName3.setText(StrEDPName[2]);}
+		        // è·å–å­—ä½“è®¾ç½®ä¿¡æ¯
 		        String[] SPEDP_Font=new String[3];
 		        SPEDP_Font[0] = EDPName_Font_1.getSelectedItem().toString();
 		        SPEDP_Font[1] = EDPName_Font_2.getSelectedItem().toString();
 		        SPEDP_Font[2] = EDPName_Font_3.getSelectedItem().toString();
-		        // Õâ±ßĞèÒª½øĞĞ×ÖÌå¶ÔÕÕÆ¥Åä »ªÎÄĞÂÎº-->HWXW.tff
+		        // è¿™è¾¹éœ€è¦è¿›è¡Œå­—ä½“å¯¹ç…§åŒ¹é…æ˜ å°„ åæ–‡æ–°é­-->HWXW.tff
 		        for(int i=0;i<3;i++)
 		        {
 		        	StrEDPNameFont[i]=EDPFont_Map.get(SPEDP_Font[i]);
 		        }
-		        
+		        // åŠ è½½å­—ä½“
 		        MainActivity MA=(MainActivity) getActivity();
-		        MA.setEDPTextinformation(StrEDPName,StrEDPNameFont);//´«µİ²ÎÊı
-		        // ×ÖÌå²¿·Ö´¦Àí
+		        MA.setEDPTextinformation(StrEDPName,StrEDPNameFont);//ä¼ é€’å‚æ•°
+		        // å­—ä½“éƒ¨åˆ†å¤„ç†
 		        Typeface[] GetTextFont=new Typeface[3];
-				GetTextFont=MA.getEDPTextFontinformation();
+				GetTextFont=MA.getEDPTextFontSetting();
 				EDPTF=GetTextFont;
 				EDPName1.setTypeface(EDPTF[0]);
 		        EDPName2.setTypeface(EDPTF[1]);
 		        EDPName3.setTypeface(EDPTF[2]);
-		        // ÌáÊ¾
-		        Toast.makeText(getActivity(), "±£´æÍê³É",Toast.LENGTH_SHORT).show();
-		        Toast.makeText(getActivity(), "×ÖÌåÎÄ¼ş£º\n"
-		        		+"×ÖÌå1£º"+SPEDP_Font[0]+" ×ª»»£º"+StrEDPNameFont[0]+" \n"
-		        		+"×ÖÌå2£º"+SPEDP_Font[1]+" ×ª»»£º"+StrEDPNameFont[1]+" \n"
-		        		+"×ÖÌå3£º"+SPEDP_Font[2]+" ×ª»»£º"+StrEDPNameFont[2]+"",Toast.LENGTH_SHORT).show();
+		        setSpinnerItemSelectedByValue(EDPName_Font_1,EDPFont_Map_Spinner.get(StrEDPNameFont[0]));
+				setSpinnerItemSelectedByValue(EDPName_Font_2,EDPFont_Map_Spinner.get(StrEDPNameFont[1]));
+				setSpinnerItemSelectedByValue(EDPName_Font_3,EDPFont_Map_Spinner.get(StrEDPNameFont[2]));
+		        // æç¤º
+		        Toast.makeText(getActivity(), "ä¿å­˜å®Œæˆ",Toast.LENGTH_SHORT).show();
+		        Toast.makeText(getActivity(), "å­—ä½“æ–‡ä»¶ï¼š\n"
+		        		+"å­—ä½“1ï¼š"+SPEDP_Font[0]+" è½¬æ¢ï¼š"+StrEDPNameFont[0]+" \n"
+		        		+"å­—ä½“2ï¼š"+SPEDP_Font[1]+" è½¬æ¢ï¼š"+StrEDPNameFont[1]+" \n"
+		        		+"å­—ä½“3ï¼š"+SPEDP_Font[2]+" è½¬æ¢ï¼š"+StrEDPNameFont[2]+"",Toast.LENGTH_SHORT).show();
 				}
 			});
         /*
-         * ÉèÖÃ×ÖÌå
+         * è®¾ç½®å­—ä½“ å­—ä½“å¤§å°
          */
         EDPName1.setTypeface(EDPTF[0]);
         EDPName2.setTypeface(EDPTF[1]);
         EDPName3.setTypeface(EDPTF[2]);
+        // å­—ä½“å¤§å°
+        EDPName2.setTextSize(45);
+        EDPName3.setTextSize(25);
         /*
-         * ÉèÖÃÎÄ±¾
+         * è®¾ç½®æ–‡æœ¬
          */
-        if(StrEDPName[0].equals("")){
-        	EDPName1.setText("ÎÄ±¾ÄÚÈİ1");
-        }
-        else
-        {
-        	EDPName1.setText(StrEDPName[0].toCharArray(), 0, StrEDPName[0].length());
-        	EDPName1.setTextColor(Color.RED);        	
-        }
-        if(StrEDPName[1].equals("")){
-        	EDPName2.setText("ÎÄ±¾ÄÚÈİ2");
-        	EDPName2.setTextSize(45);
-        }
-        else
-        {
-        	EDPName2.setText(StrEDPName[1].toCharArray(), 0, StrEDPName[1].length());
-        	EDPName2.setTextSize(45);
-        	EDPName2.setTextColor(Color.GREEN);
-        }
-        if(StrEDPName[2].equals("")){
-        	EDPName3.setText("ÎÄ±¾ÄÚÈİ3");
-        	EDPName3.setTextSize(25);
-        }
-        else
-        {
-        	EDPName3.setText(StrEDPName[2].toCharArray(), 0, StrEDPName[2].length());
-        	EDPName3.setTextSize(25);
-        	EDPName3.setTextColor(Color.BLUE);
-        }
+        if(StrEDPName[0].equals("")){ EDPName1.setText("æ–‡æœ¬å†…å®¹1");}
+        else{EDPName1.setText(StrEDPName[0]);}
+        if(StrEDPName[1].equals("")){ EDPName2.setText("æ–‡æœ¬å†…å®¹2");}
+        else{EDPName2.setText(StrEDPName[1]);}
+        if(StrEDPName[2].equals("")){ EDPName3.setText("æ–‡æœ¬å†…å®¹3");}
+        else{EDPName3.setText(StrEDPName[2]);}
 	    return rootView;    
-	} 
+	}
+	
+	/**  
+	 * æ ¹æ®å€¼, è®¾ç½®spinneré»˜è®¤é€‰ä¸­:  
+	 * @param spinner  
+	 * @param value  
+	 */  
+	public static void setSpinnerItemSelectedByValue(Spinner spinner,String value){  
+	      
+	    SpinnerAdapter apsAdapter= spinner.getAdapter(); //å¾—åˆ°SpinnerAdapterå¯¹è±¡  
+	    int k= apsAdapter.getCount();  
+	    for(int i=0;i<k;i++){  
+	        if(value.equals(apsAdapter.getItem(i).toString())){  
+	            spinner.setSelection(i,true);// é»˜è®¤é€‰ä¸­é¡¹  
+	            break;  
+	        }  
+	    }  
+	}
 }

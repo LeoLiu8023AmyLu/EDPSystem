@@ -286,7 +286,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
                     android:background="#FFCC22"
-                    android:text="返回"
+                    android:text="@string/EDP_Back"
                     android:textSize="30sp" />
 
             </LinearLayout>
@@ -306,7 +306,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
                     android:background="#4488FF"
-                    android:text="导入"
+                    android:text="@string/EDP_PutIn"
                     android:textSize="30sp" />
 
             </LinearLayout>
@@ -325,7 +325,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
                     android:background="#77FF55"
-                    android:text="下一步"
+                    android:text="@string/EDP_Next"
                     android:textSize="30sp" />
 
             </LinearLayout>

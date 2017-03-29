@@ -110,7 +110,7 @@
                     		    android:layout_width="wrap_content"
                     		    android:layout_height="wrap_content"
                     		    android:layout_gravity="left"
-                    		    android:text="文本内容A："
+                    		    android:text="@string/EDP_InputTextA"
                     		    android:textColor="#000000"
                     		    android:textSize="20sp" />
 
@@ -125,7 +125,7 @@
                        		    android:layout_width="wrap_content"
                        		    android:layout_height="wrap_content"
                        		    android:layout_gravity="left"
-                       		    android:text="字体："
+                       		    android:text="@string/EDP_Font"
                        		    android:textColor="#000000"
                        		    android:textSize="20sp" />
 
@@ -149,7 +149,7 @@
                     		    android:layout_width="wrap_content"
                     		    android:layout_height="wrap_content"
                     		    android:layout_gravity="left"
-                    		    android:text="文本内容B："
+                    		    android:text="@string/EDP_InputTextB"
                     		    android:textColor="#000000"
                     		    android:textSize="20sp" />
                         	
@@ -164,7 +164,7 @@
                        		    android:layout_width="wrap_content"
                        		    android:layout_height="wrap_content"
                        		    android:layout_gravity="left"
-                       		    android:text="字体："
+                       		    android:text="@string/EDP_Font"
                        		    android:textColor="#000000"
                        		    android:textSize="20sp" />
 
@@ -188,7 +188,7 @@
                     		    android:layout_width="wrap_content"
                     		    android:layout_height="wrap_content"
                     		    android:layout_gravity="left"
-                    		    android:text="文本内容C："
+                    		    android:text="@string/EDP_InputTextC"
                     		    android:textColor="#000000"
                     		    android:textSize="20sp" />
                     		
@@ -203,7 +203,7 @@
                        		    android:layout_width="wrap_content"
                        		    android:layout_height="wrap_content"
                        		    android:layout_gravity="left"
-                       		    android:text="字体："
+                       		    android:text="@string/EDP_Font"
                        		    android:textColor="#000000"
                        		    android:textSize="20sp" />
 
@@ -227,7 +227,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:text="应用" />
+                    android:text="@string/EDP_Set" />
                 
             </LinearLayout>
             
@@ -255,7 +255,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
                     android:background="#FFCC22"
-                    android:text="返回"
+                    android:text="@string/EDP_Back"
                     android:textSize="30sp" />
 
             </LinearLayout>
@@ -275,7 +275,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
                     android:background="#4488FF"
-                    android:text="重置"
+                    android:text="@string/EDP_ReSet"
                     android:textSize="30sp" />
 
             </LinearLayout>
@@ -294,7 +294,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
                     android:background="#77FF55"
-                    android:text="下一步"
+                    android:text="@string/EDP_Next"
                     android:textSize="30sp" />
 
             </LinearLayout>

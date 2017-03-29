@@ -267,7 +267,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:text="保存" />
+                    android:text="@string/EDP_Set" />
                 
             </LinearLayout>
             

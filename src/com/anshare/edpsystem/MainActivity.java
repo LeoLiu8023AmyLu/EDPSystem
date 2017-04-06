@@ -31,28 +31,27 @@ public class MainActivity extends Activity {
 		 * 初始化 电子席卡的数值
 		 * @ 字体大小、字体上下位置、字体左右位置、显示文字、字体
 		 */
+		// 文字大小
 		Set_Text_Size[0]=100;
 		Set_Text_Size[1]=40;
 		Set_Text_Size[2]=35;
-		
+		// 文字位置
 		Set_Up_Down[0]=0;
 		Set_Up_Down[1]=0;
 		Set_Up_Down[2]=0;
-		
 		Set_Left_Right[0]=0;
 		Set_Left_Right[1]=0;
 		Set_Left_Right[2]=0;
-		
+		// 文字字体
 		for(int i=0;i<3;i++)
         {
         	StrEDPName[i]="文本内容"+Integer.toString(i+1)+"";	// 初始化 文本信息
         	StrEDPNameFont[i]="fonts/HWXW.ttf";				// 初始化 文本字体
         }
-		
+		// 字体对象
 		EDPTF[0] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[0]);
 		EDPTF[1] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[1]);
 		EDPTF[2] = Typeface.createFromAsset(getAssets(), StrEDPNameFont[2]);
-		
 		// 用一个线程不断更新时间
 		new TimeThread().start();
 	}
@@ -82,7 +81,6 @@ public class MainActivity extends Activity {
 		GetBack=StrEDPNameFont;
 		return GetBack;
 	}
-	
 	public Typeface[] getEDPTextFontSetting()
 	{
 		//返回字体对象类型数组[]
@@ -93,7 +91,6 @@ public class MainActivity extends Activity {
 		GetBack=EDPTF;
 		return GetBack;
 	}
-	
 	/*
 	 * 重点接口程序
 	 * @ 文字位置、大小的传入接口，传出函数

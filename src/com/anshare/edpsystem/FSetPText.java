@@ -128,7 +128,6 @@ public class FSetPText extends Fragment {
 		EDPLL3.addView(EDPName3);
 		EDPName3.setGravity(Gravity.CENTER);
 		EDPLL3.setLayoutParams(params0);	// 设置层的偏移属性
-		
 		Rlayout.addView(EDPLL1);
 		Rlayout.addView(EDPLL2);
 		Rlayout.addView(EDPLL3);
@@ -410,7 +409,6 @@ public class FSetPText extends Fragment {
 						+"EDPName3 Left "+left[2]+"\t L&R "+C_Left_Right[2]+"\t Top "+top[2]+"\t U&D "+C_Up_Down[2]+"",Toast.LENGTH_LONG).show();
 				}
 			});
-        
 	    return rootView;    
 	} 
 }

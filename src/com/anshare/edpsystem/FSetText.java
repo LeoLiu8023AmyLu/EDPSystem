@@ -128,8 +128,6 @@ public class FSetText extends Fragment {
 				Toast.makeText(getActivity(), "已重置并保存完成",Toast.LENGTH_SHORT).show();
 				}
 			});
-		
-       
 		/*
          * 重要的应用按钮
          * 设置文本信息 保存信息

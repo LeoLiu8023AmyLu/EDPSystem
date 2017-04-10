@@ -74,6 +74,12 @@ EDPSystem 安夏电子席卡 Android 版本 客户端</br>
 
 8. Android 线程资源回收</br>
 
+9.Android JNI 相关资料</br>
+* 参考资料：</br>
+	1.[深入理解JNI](http://wiki.jikexueyuan.com/project/deep-android-v1/jni.html)</br>
+	2.[Android JNI编程—JNI基础](http://www.jianshu.com/p/aba734d5b5cd)</br>
+	3.[JNI Tips](https://developer.android.com/training/articles/perf-jni.html)</br>
+
 ## 工作记录：</br>
 * 2017.03.21 解决字体样式加载问题</br>
 * 2017.03.22 下拉列表控件</br>

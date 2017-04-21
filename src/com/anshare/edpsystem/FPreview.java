@@ -128,7 +128,8 @@ public class FPreview extends Fragment {
 		FSet4_back.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//do something
+				//删除当前页Fragment，然后再添加新的Fragmnet
+				getFragmentManager().beginTransaction().remove(new FPreview()).commit();
 				getFragmentManager().beginTransaction().add(R.id.container, new FSetPText()).commit();
 				}
 			});
@@ -136,7 +137,8 @@ public class FPreview extends Fragment {
 		FSet4_next.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//do something
+				//删除当前页Fragment，然后再添加新的Fragmnet
+				getFragmentManager().beginTransaction().remove(new FPreview()).commit();
 				getFragmentManager().beginTransaction().replace(R.id.container, new MainWindow()).commit();
 				}
 			});

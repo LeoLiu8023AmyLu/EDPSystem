@@ -193,7 +193,8 @@ public class FSetPText extends Fragment {
 		FSet3_back.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//do something
+				//删除当前页Fragment，然后再添加新的Fragmnet
+				getFragmentManager().beginTransaction().remove(new FSetPText()).commit();
 				getFragmentManager().beginTransaction().add(R.id.container, new FSetText()).commit();
 				}
 			});
@@ -201,7 +202,8 @@ public class FSetPText extends Fragment {
 		FSet3_next.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//do something
+				//删除当前页Fragment，然后再添加新的Fragmnet
+				getFragmentManager().beginTransaction().remove(new FSetPText()).commit();
 				getFragmentManager().beginTransaction().add(R.id.container, new FPreview()).commit();
 				}
 			});

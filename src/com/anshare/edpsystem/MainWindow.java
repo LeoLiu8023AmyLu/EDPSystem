@@ -25,6 +25,7 @@ public class MainWindow extends Fragment {
 			public void onClick(View v) {
 				//do something
 				getFragmentManager().beginTransaction().add(R.id.container, new FModelchoose()).commit();
+				getFragmentManager().beginTransaction().remove(new MainWindow()).commit();
 			}
 			});
 		Button MainAutoSetBT=(Button)rootView.findViewById(R.id.button_MainAutoset);
@@ -33,6 +34,8 @@ public class MainWindow extends Fragment {
 			public void onClick(View v) {
 				//do something
 				Toast.makeText(getActivity(), "暂不支持此项功能，请等待开发完成",Toast.LENGTH_SHORT).show();
+				MainActivity MA0=(MainActivity) getActivity();
+				MA0.F_Add_Preview();
 				}
 			});
 		//初始化 控件

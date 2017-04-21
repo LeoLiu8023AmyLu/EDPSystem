@@ -3,13 +3,11 @@ package com.anshare.edpsystem;
 import java.util.HashMap;
 
 import android.app.Fragment;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;  
 import android.view.LayoutInflater;  
 import android.view.View;  
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -90,6 +88,8 @@ public class FSetText extends Fragment {
 		FSet2_back.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				//删除当前页Fragment，然后再添加新的Fragmnet
+				getFragmentManager().beginTransaction().remove(new FSetText()).commit();
 				getFragmentManager().beginTransaction().add(R.id.container, new FModelchoose()).commit();
 				}
 			});
@@ -97,6 +97,8 @@ public class FSetText extends Fragment {
 		FSet2_next.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				//删除当前页Fragment，然后再添加新的Fragmnet
+				getFragmentManager().beginTransaction().remove(new FSetText()).commit();
 				getFragmentManager().beginTransaction().add(R.id.container, new FSetPText()).commit();
 				}
 			});

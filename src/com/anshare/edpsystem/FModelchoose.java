@@ -27,6 +27,7 @@ public class FModelchoose extends Fragment {
 			public void onClick(View v) {
 				//do something
 				getFragmentManager().beginTransaction().replace(R.id.container, new MainWindow()).commit();
+				getFragmentManager().beginTransaction().remove(new FModelchoose()).commit();
 				}
 			});
 		Button FSet1_next=(Button)rootView.findViewById(R.id.FSet1_next);
@@ -35,6 +36,7 @@ public class FModelchoose extends Fragment {
 			public void onClick(View v) {
 				//do something
 				getFragmentManager().beginTransaction().add(R.id.container, new FSetText()).commit();
+				getFragmentManager().beginTransaction().remove(new FModelchoose()).commit();
 				}
 			});
 		Button FSet1_input=(Button)rootView.findViewById(R.id.FSet1_input);

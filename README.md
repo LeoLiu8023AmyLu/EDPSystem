@@ -91,3 +91,5 @@ EDPSystem 安夏电子席卡 Android 版本 客户端</br>
 * 2017.04.07 优化代码结构，添加注释；研究串口通信接口 通信协议API，难度有些大，在看Demo 涉及到 底层的编程；更新了usb-serial 项目文件 </br>
 * 2017.04.11 研究usbserial代码 </br>
 * 目前遇到了瓶颈 准备先学习一些其他的知识
+* 2017.04.21 重新把每个Fragment中的按钮中 Fragment切换的功能移动至主MainActivity，用于解决Fragment资源问题(还在调试中)
+* 2017.04.21 Fragmennt 通过 Add 与 Remove 两个函数配合释放资源 【问题还没有解决！！！】

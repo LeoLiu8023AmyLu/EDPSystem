@@ -93,3 +93,4 @@ EDPSystem 安夏电子席卡 Android 版本 客户端</br>
 * 目前遇到了瓶颈 准备先学习一些其他的知识
 * 2017.04.21 重新把每个Fragment中的按钮中 Fragment切换的功能移动至主MainActivity，用于解决Fragment资源问题(还在调试中)
 * 2017.04.21 Fragmennt 通过 Add 与 Remove 两个函数配合释放资源 【问题还没有解决！！！】
+* 2017.04.25 修改 xml 文件 把按钮文字大小改为 20sp

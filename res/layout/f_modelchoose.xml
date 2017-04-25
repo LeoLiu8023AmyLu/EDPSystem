@@ -225,7 +225,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40sp"
                     android:layout_weight="0.6"
                     android:gravity="center"
                     android:orientation="vertical" >
@@ -238,7 +238,7 @@
                         android:layout_weight="0.2"
                         android:text="模板名称"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/FSet1_0Dital2"
@@ -248,7 +248,7 @@
                         android:layout_weight="0.2"
                         android:text="导入时间"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/FSet1_0Dital3"
@@ -258,7 +258,7 @@
                         android:layout_weight="0.6"
                         android:text="详情"
                         android:textColor="#000000"
-                        android:textSize="25sp" />
+                        android:textSize="20sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -266,7 +266,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:gravity="center"
@@ -287,7 +287,7 @@
                     android:layout_weight="0.3"
                     android:background="#FFCC22"
                     android:text="@string/EDP_Back"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -307,7 +307,7 @@
                     android:layout_weight="0.3"
                     android:background="#4488FF"
                     android:text="@string/EDP_PutIn"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -326,7 +326,7 @@
                     android:layout_weight="0.3"
                     android:background="#77FF55"
                     android:text="@string/EDP_Next"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
             

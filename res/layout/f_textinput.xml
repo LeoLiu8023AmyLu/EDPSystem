@@ -235,7 +235,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:gravity="center"
@@ -256,7 +256,7 @@
                     android:layout_weight="0.3"
                     android:background="#FFCC22"
                     android:text="@string/EDP_Back"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -276,7 +276,7 @@
                     android:layout_weight="0.3"
                     android:background="#4488FF"
                     android:text="@string/EDP_ReSet"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -295,7 +295,7 @@
                     android:layout_weight="0.3"
                     android:background="#77FF55"
                     android:text="@string/EDP_Next"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
             

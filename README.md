@@ -80,6 +80,11 @@ EDPSystem 安夏电子席卡 Android 版本 客户端</br>
 	2.[Android JNI编程—JNI基础](http://www.jianshu.com/p/aba734d5b5cd)</br>
 	3.[JNI Tips](https://developer.android.com/training/articles/perf-jni.html)</br>
 
+</br>	
+10. Android 文件管理 </br>
+</br>
+[文件管理 ] ( http://blog.csdn.net/gan303/article/details/52350617/ ) </br>
+
 ## 工作记录：</br>
 * 2017.03.21 解决字体样式加载问题</br>
 * 2017.03.22 下拉列表控件</br>

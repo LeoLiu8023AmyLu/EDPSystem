@@ -12,8 +12,8 @@ import java.util.Calendar;
 public class MainActivity extends Activity {
 
 	private final int msgKey1 = 1;
-	private Boolean TimeFlag = true;
-	private String[] StrEDPName = new String[3];
+	private Boolean TimeFlag = true; 				// 时间更新 标识符
+	private String[] StrEDPName = new String[3];	// 席卡姓名 
 	private String[] StrEDPNameFont = new String[3];
 	private int[] Set_Up_Down = new int[3];
 	private int[] Set_Left_Right = new int[3];
@@ -111,26 +111,27 @@ public class MainActivity extends Activity {
 		GetBack[2] = this.Set_Text_Size;
 		return GetBack;
 	}
+
 	/*
 	 * Fragment 切换程序
 	 */
-	public void F_Add_ModelChoose()
-	{
+	public void F_Add_ModelChoose() {
 		getFragmentManager().beginTransaction().add(R.id.container, new FModelchoose()).commit();
 	}
-	public void F_Add_SetTextA()
-	{
+
+	public void F_Add_SetTextA() {
 		getFragmentManager().beginTransaction().add(R.id.container, new FSetText()).commit();
 	}
-	public void F_Add_SetTextB()
-	{
+
+	public void F_Add_SetTextB() {
 		getFragmentManager().beginTransaction().add(R.id.container, new FSetPText()).commit();
 	}
-	public void F_Add_Preview()
-	{
+
+	public void F_Add_Preview() {
 		getFragmentManager().beginTransaction().remove(new MainWindow()).commit();
 		getFragmentManager().beginTransaction().add(R.id.container, new FPreview()).commit();
 	}
+
 	/*
 	 * 时间更新
 	 */
@@ -149,7 +150,9 @@ public class MainActivity extends Activity {
 			} while (TimeFlag);
 		}
 	}
-
+	/*
+	 * 读取时间，将时间反馈到界面
+	 */
 	private Handler mHandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
@@ -168,8 +171,8 @@ public class MainActivity extends Activity {
 				int week = c.get(Calendar.DAY_OF_WEEK);
 				String[] weekname = { "周日", "周一", "周二", "周三", "周四", "周五", "周六" };
 				// 更新 UI
-				MainTime.setText(sysTimeStr);
-				MainDate.setText(sysDateStr + "  " + weekname[week - 1]);
+				MainTime.setText(sysTimeStr); // 设置时间
+				MainDate.setText(sysDateStr + "  " + weekname[week - 1]); // 设置日期 
 				break;
 			default:
 				break;
